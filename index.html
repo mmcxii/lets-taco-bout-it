@@ -5,10 +5,178 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Let's Taco 'Bout It!</title>
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.8.2/css/all.css"
+            integrity="sha384-xVVam1KS4+Qt2OrFa+VdRUoXygyKIuNWUUUBZYv+n27STsJ7oDOHJgfF0bNKLMJF"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
     </head>
     <body>
-        <header></header>
-        <main></main>
-        <footer></footer>
+        <header>
+            <div class="container">
+                <h1 id="title--main">
+                    <!--Going to hide text with css and replace with logo image-->
+                    Let's Taco 'Bout It
+                </h1>
+
+                <section class="sign-in">
+                    <button class="sign-in__btn" id="sign-in-btn">
+                        <i class="fas fa-sign-in"></i> Sign In
+                    </button>
+                </section>
+
+                <nav class="nav">
+                    <button class="nav__toggle nav__toggle--open">
+                        <i class="far fa-bars"></i>
+                    </button>
+
+                    <!--Toggle buttons on open and close?-->
+                    <button class="nav__toggle nav__toggle--close">
+                        <i class="far fa-times"></i>
+                    </button>
+
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a
+                                href="https://github.com/mmcxii/lets-taco-bout-it"
+                                class="nav__link"
+                                target="new"
+                            >
+                                <i class="nav__icon fab fa-github"></i> Project Repository
+                            </a>
+                        </li>
+
+                        <hr />
+
+                        <li class="nav__item">
+                            <a href="https://github.com/Jirafaro" class="nav__link" target="new">
+                                <i class="nav__icon fab fa-github"></i> Austin Robbins
+                            </a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="https://github.com/Remet0" class="nav__item" target="new">
+                                <i class="nav__icon fab fa-github"></i> John Remeto
+                            </a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="https://github.com/mmcxii" class="nav__item" target="new">
+                                <i class="nav__icon fab fa-github"></i> Nich Secord
+                            </a>
+                        </li>
+                        <li class="nav__link">
+                            <a href="https://github.com/Munch-Z" class="nav__item" target="new">
+                                <i class="nav__icon fab fa-github"></i> Zach Murphy
+                            </a>
+                        </li>
+
+                        <hr />
+
+                        <li class="nav__item">
+                            <a href="https://github.com/evz/tacofancy-api" class="nav__link" target="new">
+                                <i class="nav__icon fas fa-taco"></i> TacoFancy API
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a
+                                href="https://www.yelp.com/developers/documentation/v3"
+                                class="nav__link"
+                                target="new"
+                            >
+                                <i class="nav__icon fab fa-yelp"></i> Yelp API
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="https://momentjs.com/" class="nav__link" target="new">
+                                <i class="nav__icon fal fa-clock"></i> Moment.js
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a
+                                href="https://firebase.google.com/docs/reference/js/"
+                                class="nav__link"
+                                target="new"
+                            >
+                                <i class="nav__icon fas fa-fire"></i> Firebase
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
+                                class="nav__link"
+                                target="new"
+                            >
+                                <i class="nav__icon fas fa-location"></i> Geolocation API
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Icons -->
+
+        <!--Button Icons-->
+
+        <!--Recipe-->
+        <i class="fas fa-taco"></i>
+
+        <!--Restaurant-->
+        <i class="fas fa-utensils-alt"></i>
+        <i class="fas fa-store"></i>
+
+        <!--Both on Third?-->
+
+        <!--Refresh-->
+        <i class="fas fa-sync-alt"></i>
+
+        <!--Spin on click?-->
+        <i class="fas fa-sync-alt fa-spin"></i>
+
+        <!--Delete-->
+        <i class="fas fa-trash"></i>
+
+        <!--Favorite-->
+        <i class="fas fa-star"></i>
+
+        <br /><br />
+
+        <!--Spinners (pick one)-->
+        <i class="fas fa-spinner-third fa-spin"></i>
+        <i class="far fa-circle-notch fa-spin"></i>
+        <i class="fas fa-spinner fa-spin"></i>
+
+        <!---->
+
+        <main>
+            <section class="hero">
+                <!-- Add class hero--minify on secondary pages? -->
+                <h2 class="hero__heading">Welcome to Let's Taco 'Bout It!</h2>
+                <p class="hero__text">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos laboriosam quas
+                    veniam, deserunt perspiciatis odio eveniet quia itaque quisquam, hic, dicta quam corporis
+                    magni officia repudiandae blanditiis consequuntur nostrum earum.
+                </p>
+            </section>
+            <div class="container">
+                <section class="page landing-page">Landing Page</section>
+                <section class="page recipe-page">Recipe Page</section>
+                <section class="module yelp-form-module">Yelp Form</section>
+                <section class="page restaurant-page">Restaurant Page</section>
+                <section class="page hybrid-page">Hybrid Page</section>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <section class="byline">Let's Taco 'Bout It &copy;2019</section>
+                <section class="social">
+                    <a href="https://github.com/mmcxii/lets-taco-bout-it" target="new" class="social__link">
+                        <i class="social__icon  fab fa-github"></i>
+                    </a>
+                </section>
+            </div>
+        </footer>
     </body>
 </html>
