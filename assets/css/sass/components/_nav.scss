@@ -22,11 +22,11 @@
     }
 
     @include mq(bp(lg)) {
-        width: 20vw;
+        width: 25vw;
     }
 
     @include mq(bp(xl)) {
-        width: 15vw;
+        width: 20vw;
     }
 
     &.shift {
