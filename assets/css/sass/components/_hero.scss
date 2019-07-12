@@ -1,0 +1,18 @@
+.hero {
+    background: url(../img/hero.png);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+
+    margin: 5vh -5.35rem 0;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+
+    &__text {
+        text-align: center;
+        margin: auto 25%;
+
+        color: clr(light--0);
+    }
+}

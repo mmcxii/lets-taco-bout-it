@@ -4,14 +4,14 @@ const navMenu = document.querySelector('#nav__menu');
 const body = document.querySelector('body');
 
 openBtn.addEventListener('click', () => {
-    openBtn.classList.add('hidden');
     navMenu.classList.add('shift');
     body.classList.add('shift');
+    openBtn.classList.add('hidden');
 });
 
 closeBtn.addEventListener('click', () => {
-    navMenu.classList.remove('shift');
     body.classList.remove('shift');
+    navMenu.classList.remove('shift');
 
     // Delay return of hamburger button
     setTimeout(() => {

@@ -23,10 +23,7 @@
                     </button>
                 </section>
 
-                <h1 class="title--main">
-                    <!--Going to hide text with css and replace with logo image-->
-                    Let's Taco 'Bout It
-                </h1>
+                <h1 class="title--main">Let's <span class="title--main__taco">Taco</span> 'Bout It</h1>
 
                 <button class="nav__toggle nav__toggle--open" id="nav__toggle--open">
                     <i class="far fa-bars"></i>
@@ -129,6 +126,70 @@
             </div>
         </header>
 
+        <main>
+            <div class="container">
+                <section class="hero">
+                    <!-- Add class hero--minify on secondary pages? -->
+                    <section class="hero__text">
+                        <h2 class="hero__heading">
+                            Welcome to Let's Taco 'Bout It!
+                        </h2>
+                        <p class="hero__subtext">
+                            The future of sabroso
+                        </p>
+                    </section>
+                </section>
+
+                <section class="page landing-page" id="home">
+                    <section class="intro">
+                        <p>
+                            Man, are you really just <em>gassed</em> at
+                            <span id="current-time">12:30 on a Sunday</span>? Or do you just have a hankerin'
+                            for some tacos? Either way, we here at Let's Taco 'Bout It can relate. Our
+                            proprietary, open source app can solve all of your taco related woes in just a few
+                            simple clicks!
+                        </p>
+                        <p>
+                            Our app gives <em>you</em> the power to decide on your own taco experience from
+                            the two main schools of thought: be a true man (or woman, as the case may be) and
+                            make your own damn tacos by selecting a recipe from our highly currated list of
+                            proven-to-knock-your-socks-off tacos; or leave the dangerous taco creation work to
+                            the highly trained professionals in which case we will provide you with a list of
+                            the ten closest places you can get your fix!
+                        </p>
+                        <p>
+                            But wait, you may be asking yourself, I see a third button in my not so distant
+                            future. And we applaud you for your excelent peripheral vision. That awfuly
+                            handsome third button will enable you to straddle the two universes and experience
+                            both the wonders of browsing local taquerias and trucks, as well as perusing a few
+                            recipes so you can ensure that you are truly getting the best taco experience we
+                            can provide!
+                        </p>
+                    </section>
+
+                    <section class="options">
+                        <button class="btn options__btn" id="recipe-btn">
+                            <i class="btn__icon fas fa-taco"></i>
+                            Make My Own!
+                        </button>
+                        <button class="btn options__btn" id="restaurant-btn">
+                            <i class="btn__icon fa fa-utensils-alt"></i>
+                            Support Local Businesses
+                        </button>
+                        <button class="btn options__btn" id="hybrid-btn">
+                            <i class="btn__icon fas fa-taco"></i>
+                            ¿Porque No Los Dos?
+                            <i class="btn__icon--after fa fa-utensils-alt"></i>
+                        </button>
+                    </section>
+                </section>
+                <section class="page recipe-page">Recipe Page</section>
+                <section class="module yelp-form-module">Yelp Form</section>
+                <section class="page restaurant-page">Restaurant Page</section>
+                <section class="page hybrid-page">Hybrid Page</section>
+            </div>
+        </main>
+
         <!-- Icons -->
 
         <!--Button Icons-->
@@ -145,9 +206,6 @@
         <!--Refresh-->
         <i class="fas fa-sync-alt"></i>
 
-        <!--Spin on click?-->
-        <!-- <i class="fas fa-sync-alt"></i> -->
-
         <!--Delete-->
         <i class="fas fa-trash"></i>
 
@@ -158,38 +216,11 @@
 
         <!--Spinners (pick one)-->
         <div>
-            <i class="fas fa-spinner-third fa-spin"></i>
-            <i class="far fa-circle-notch fa-spin"></i>
+            <i class="fas fa-sync-alt fa-spin"></i>
             <i class="fas fa-spinner fa-spin"></i>
         </div>
 
         <!---->
-
-        <main>
-            <div class="container">
-                <section class="hero">
-                    <!-- Add class hero--minify on secondary pages? -->
-                    <h2 class="hero__heading">Welcome to Let's Taco 'Bout It!</h2>
-                    <p class="hero__text">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos laboriosam quas
-                        veniam, deserunt perspiciatis odio eveniet quia itaque quisquam, hic, dicta quam
-                        corporis magni officia repudiandae blanditiis consequuntur nostrum earum.
-                    </p>
-                </section>
-
-                <section class="page landing-page">
-                    Landing Page
-
-                    <button class="btn" id="recipe-btn">Recipe Button</button>
-                    <button class="btn" id="restaurant-btn">Restaurant Button</button>
-                    <button class="btn" id="hybrid-btn">Hybrid Button</button>
-                </section>
-                <section class="page recipe-page">Recipe Page</section>
-                <section class="module yelp-form-module">Yelp Form</section>
-                <section class="page restaurant-page">Restaurant Page</section>
-                <section class="page hybrid-page">Hybrid Page</section>
-            </div>
-        </main>
         <footer>
             <div class="container">
                 <section class="byline">Let's Taco 'Bout It &copy;2019</section>

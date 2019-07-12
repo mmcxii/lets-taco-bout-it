@@ -64,9 +64,9 @@ header .container {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 footer {
@@ -227,6 +227,28 @@ footer .container {
   margin: 1rem 0;
 }
 
+.hero {
+  background: url(../img/hero.png);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+  margin: 5vh -5.35rem 0;
+  height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero__text {
+  text-align: center;
+  margin: auto 25%;
+  color: #eee;
+}
+
 .sign-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,6 +264,14 @@ footer .container {
 
 .title--main {
   margin-left: 0.5rem;
+}
+
+.title--main__taco {
+  color: transparent;
+  background: url(../img/logo.png) no-repeat;
+  background-position-y: 60%;
+  background-size: cover;
+  margin: 0;
 }
 
 .btn {
@@ -261,4 +291,8 @@ footer .container {
 
 .btn__icon {
   margin-right: 0.5rem;
+}
+
+.btn__icon--after {
+  margin-left: 0.5rem;
 }
