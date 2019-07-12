@@ -143,44 +143,52 @@
                 <section class="page landing-page" id="home">
                     <section class="intro">
                         <p>
-                            Man, are you really just <em>gassed</em> at
-                            <span id="current-time">12:30 on a Sunday</span>? Or do you just have a hankerin'
-                            for some tacos? Either way, we here at Let's Taco 'Bout It can relate. Our
-                            proprietary, open source app can solve all of your taco related woes in just a few
-                            simple clicks!
+                            Man, are you really just <em>gassed</em> at <span id="current-time"></span>? Or do
+                            you just have a hankerin' for some tacos? Either way, we here at Let's Taco 'Bout
+                            It can relate. Our proprietary, open source app can solve all of your taco related
+                            woes in just a few simple clicks!
                         </p>
                         <p>
                             Our app gives <em>you</em> the power to decide on your own taco experience from
                             the two main schools of thought: be a true man (or woman, as the case may be) and
                             make your own damn tacos by selecting a recipe from our highly currated list of
                             proven-to-knock-your-socks-off tacos; or leave the dangerous taco creation work to
-                            the highly trained professionals in which case we will provide you with a list of
+                            the highly trained professionals, in which case we will provide you with a list of
                             the ten closest places you can get your fix!
                         </p>
                         <p>
-                            But wait, you may be asking yourself, I see a third button in my not so distant
-                            future. And we applaud you for your excelent peripheral vision. That awfuly
-                            handsome third button will enable you to straddle the two universes and experience
-                            both the wonders of browsing local taquerias and trucks, as well as perusing a few
-                            recipes so you can ensure that you are truly getting the best taco experience we
-                            can provide!
+                            But wait, you may be asking yourself, I see a third button, and we applaud you for
+                            your excellent peripheral vision. That awfully handsome third button will enable
+                            you to straddle the two universes and experience both the wonders of browsing
+                            local taquerias and trucks, as well as perusing a few recipes simultaniously to
+                            ensure that you are truly getting the best taco experience we can provide!
                         </p>
                     </section>
 
-                    <section class="options">
-                        <button class="btn options__btn" id="recipe-btn">
-                            <i class="btn__icon fas fa-taco"></i>
-                            Make My Own!
-                        </button>
-                        <button class="btn options__btn" id="restaurant-btn">
-                            <i class="btn__icon fa fa-utensils-alt"></i>
-                            Support Local Businesses
-                        </button>
-                        <button class="btn options__btn" id="hybrid-btn">
-                            <i class="btn__icon fas fa-taco"></i>
-                            ¿Porque No Los Dos?
-                            <i class="btn__icon--after fa fa-utensils-alt"></i>
-                        </button>
+                    <section class="card options">
+                        <h3 class="card__title">Taco Experience Control Center</h3>
+                        <section class="card__body">
+                            <p class="card__intro">
+                                Welcome to your Taco Experience Control Center, to begin, please select an
+                                experience from the options below:
+                            </p>
+
+                            <section class="card__main options__list">
+                                <button class="btn options__btn" id="recipe-btn">
+                                    <i class="btn__icon fas fa-taco"></i>
+                                    Make My Own!
+                                </button>
+                                <button class="btn options__btn" id="restaurant-btn">
+                                    <i class="btn__icon fa fa-utensils-alt"></i>
+                                    Support Local Businesses
+                                </button>
+                                <button class="btn options__btn" id="hybrid-btn">
+                                    <i class="btn__icon fas fa-taco"></i>
+                                    ¿Porque No Los Dos?
+                                    <i class="btn__icon--after fa fa-utensils-alt"></i>
+                                </button>
+                            </section>
+                        </section>
                     </section>
                 </section>
                 <section class="page recipe-page">Recipe Page</section>
@@ -231,6 +239,8 @@
                 </section>
             </div>
         </footer>
-        <script src="assets/js/toggleNav.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="assets/js/GetTime.js"></script>
+        <script src="assets/js/ToggleNav.js"></script>
     </body>
 </html>

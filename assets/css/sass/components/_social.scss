@@ -1,0 +1,30 @@
+.social {
+    display: flex;
+    justify-content: space-around;
+
+    &__link {
+        text-decoration: none;
+        text-align: center;
+    }
+
+    &__icon {
+        $icon-size: 4rem;
+
+        font-size: $icon-size * 0.5;
+        width: $icon-size;
+        height: $icon-size;
+        line-height: $icon-size;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: ease-in-out 300ms;
+        box-shadow: 3px 8px 6px -6px clr(dark--1);
+
+        color: clr(light--0);
+        background: clr(dark--2);
+
+        &:hover,
+        &:focus {
+            background: clr(dark--1);
+        }
+    }
+}

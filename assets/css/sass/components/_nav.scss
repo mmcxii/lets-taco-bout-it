@@ -10,7 +10,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    padding-top: 16px;
     transition: ease-in-out 300ms;
     transform: translateX(-45vw);
 
@@ -36,11 +35,21 @@
     &__banner {
         display: flex;
         padding: $spacing--2;
+        background: rgba(0, 0, 0, 0.5);
+        padding-top: 16px;
+        border-bottom-left-radius: $rounded;
+        border-bottom-right-radius: $rounded;
+        height: 100px;
     }
 
     &__header {
-        margin: 0;
-        margin-right: auto;
+        margin: auto;
+        margin-left: 0;
+        font-size: fs(md);
+
+        @include mq(bp(lg)) {
+            font-size: fs(lg);
+        }
     }
 
     &__toggle {

@@ -1,11 +1,12 @@
 .hero {
-    background: url(../img/hero.png);
+    background: url(../img/hero.png) no-repeat;
+    background-position: center;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: darken;
 
-    margin: 10vh -3rem 0;
-    height: 40vh;
+    margin: 100px -3rem 0;
+    height: 45vh;
     display: flex;
     flex-direction: column;
 
@@ -14,5 +15,9 @@
         margin: auto 25%;
 
         color: clr(light--0);
+    }
+
+    &__subtext {
+        font-size: calc(1.75rem * 0.75);
     }
 }

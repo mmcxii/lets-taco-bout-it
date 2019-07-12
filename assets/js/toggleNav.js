@@ -16,5 +16,5 @@ closeBtn.addEventListener('click', () => {
     // Delay return of hamburger button
     setTimeout(() => {
         openBtn.classList.remove('hidden');
-    }, 200);
+    }, 100);
 });

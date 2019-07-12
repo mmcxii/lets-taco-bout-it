@@ -1,0 +1,15 @@
+.options {
+    &__list {
+        display: flex;
+        flex-direction: column;
+
+        @include mq(bp(lg)) {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    &__btn {
+        margin: $spacing--2;
+    }
+}
