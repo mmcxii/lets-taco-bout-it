@@ -1,0 +1,9 @@
+footer {
+    margin-top: auto;
+    margin-bottom: $spacing--2;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,119 @@
+.nav {
+    // Local Variable
+    $size: fs(md);
+
+    background: rgba(0, 0, 0, 0.75);
+    color: clr(light--0);
+
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 16px;
+    transition: ease-in-out 300ms;
+    transform: translateX(-45vw);
+
+    height: 100vh;
+    width: 40vw;
+
+    @include mq(bp(md)) {
+        width: 30vw;
+    }
+
+    @include mq(bp(lg)) {
+        width: 20vw;
+    }
+
+    @include mq(bp(xl)) {
+        width: 15vw;
+    }
+
+    &.shift {
+        transform: translateX(0);
+    }
+
+    &__banner {
+        display: flex;
+        padding: $spacing--2;
+    }
+
+    &__header {
+        margin: 0;
+        margin-right: auto;
+    }
+
+    &__toggle {
+        font-size: $size;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        &--open {
+            transition: ease-in-out 700ms;
+
+            &.hidden {
+                transform: translateX(-55vw);
+                transition: ease-in-out 300ms;
+            }
+        }
+
+        &--close {
+            color: clr(light--0);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        padding: 0 $spacing--2;
+    }
+
+    &__item {
+        list-style-type: none;
+        margin-bottom: $spacing--1;
+    }
+
+    &__link {
+        line-height: $size;
+        color: clr(light--0);
+        text-decoration: none;
+        transition: ease-in-out 300ms;
+
+        &--text {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 5%;
+                background: clr(light--0);
+
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: ease-in-out 300ms;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: right;
+            }
+        }
+    }
+
+    &__icon {
+        margin-right: $spacing--1;
+
+        font-size: $size;
+        height: $size;
+        width: $size;
+        line-height: $size;
+    }
+
+    &__divider {
+        margin: $spacing--2 0;
+    }
+}

@@ -17,26 +17,29 @@
     <body>
         <header>
             <div class="container">
-                <h1 id="title--main">
+                <section class="sign-in">
+                    <button class="btn sign-in__btn" id="sign-in__btn">
+                        <i class="btn__icon fas fa-sign-in"></i>Sign In
+                    </button>
+                </section>
+
+                <h1 class="title--main">
                     <!--Going to hide text with css and replace with logo image-->
                     Let's Taco 'Bout It
                 </h1>
 
-                <section class="sign-in">
-                    <button class="sign-in__btn" id="sign-in-btn">
-                        <i class="fas fa-sign-in"></i> Sign In
-                    </button>
-                </section>
+                <button class="nav__toggle nav__toggle--open" id="nav__toggle--open">
+                    <i class="far fa-bars"></i>
+                </button>
 
-                <nav class="nav">
-                    <button class="nav__toggle nav__toggle--open">
-                        <i class="far fa-bars"></i>
-                    </button>
+                <nav class="nav" id="nav__menu">
+                    <section class="nav__banner">
+                        <h2 class="nav__header">Meet the Taco 'Bout It Team</h2>
 
-                    <!--Toggle buttons on open and close?-->
-                    <button class="nav__toggle nav__toggle--close">
-                        <i class="far fa-times"></i>
-                    </button>
+                        <button class="nav__toggle nav__toggle--close" id="nav__toggle--close">
+                            <i class="far fa-times"></i>
+                        </button>
+                    </section>
 
                     <ul class="nav__list">
                         <li class="nav__item">
@@ -45,38 +48,44 @@
                                 class="nav__link"
                                 target="new"
                             >
-                                <i class="nav__icon fab fa-github"></i> Project Repository
+                                <i class="nav__icon fab fa-github"></i>
+                                <span class="nav__link--text">Project Repository</span>
                             </a>
                         </li>
 
-                        <hr />
+                        <hr class="nav__divider" />
 
                         <li class="nav__item">
                             <a href="https://github.com/Jirafaro" class="nav__link" target="new">
-                                <i class="nav__icon fab fa-github"></i> Austin Robbins
+                                <i class="nav__icon fab fa-github"></i>
+                                <span class="nav__link--text">Austin Robbins</span>
                             </a>
                         </li>
-                        <li class="nav__link">
-                            <a href="https://github.com/Remet0" class="nav__item" target="new">
-                                <i class="nav__icon fab fa-github"></i> John Remeto
+                        <li class="nav__item">
+                            <a href="https://github.com/Remet0" class="nav__link" target="new">
+                                <i class="nav__icon fab fa-github"></i>
+                                <span class="nav__link--text">John Remeto</span>
                             </a>
                         </li>
-                        <li class="nav__link">
-                            <a href="https://github.com/mmcxii" class="nav__item" target="new">
-                                <i class="nav__icon fab fa-github"></i> Nich Secord
+                        <li class="nav__item">
+                            <a href="https://github.com/mmcxii" class="nav__link" target="new">
+                                <i class="nav__icon fab fa-github"></i>
+                                <span class="nav__link--text">Nich Secord</span>
                             </a>
                         </li>
-                        <li class="nav__link">
-                            <a href="https://github.com/Munch-Z" class="nav__item" target="new">
-                                <i class="nav__icon fab fa-github"></i> Zach Murphy
+                        <li class="nav__item">
+                            <a href="https://github.com/Munch-Z" class="nav__link" target="new">
+                                <i class="nav__icon fab fa-github"></i>
+                                <span class="nav__link--text">Zach Murphy</span>
                             </a>
                         </li>
 
-                        <hr />
+                        <hr class="nav__divider" />
 
                         <li class="nav__item">
                             <a href="https://github.com/evz/tacofancy-api" class="nav__link" target="new">
-                                <i class="nav__icon fas fa-taco"></i> TacoFancy API
+                                <i class="nav__icon fas fa-taco"></i>
+                                <span class="nav__link--text">TacoFancy API</span>
                             </a>
                         </li>
                         <li class="nav__item">
@@ -85,12 +94,14 @@
                                 class="nav__link"
                                 target="new"
                             >
-                                <i class="nav__icon fab fa-yelp"></i> Yelp API
+                                <i class="nav__icon fab fa-yelp"></i>
+                                <span class="nav__link--text">Yelp API</span>
                             </a>
                         </li>
                         <li class="nav__item">
                             <a href="https://momentjs.com/" class="nav__link" target="new">
-                                <i class="nav__icon fal fa-clock"></i> Moment.js
+                                <i class="nav__icon fal fa-clock"></i>
+                                <span class="nav__link--text">Moment.js</span>
                             </a>
                         </li>
                         <li class="nav__item">
@@ -99,7 +110,8 @@
                                 class="nav__link"
                                 target="new"
                             >
-                                <i class="nav__icon fas fa-fire"></i> Firebase
+                                <i class="nav__icon fas fa-fire"></i>
+                                <span class="nav__link--text">Firebase</span>
                             </a>
                         </li>
                         <li class="nav__item">
@@ -108,7 +120,8 @@
                                 class="nav__link"
                                 target="new"
                             >
-                                <i class="nav__icon fas fa-location"></i> Geolocation API
+                                <i class="nav__icon fas fa-location"></i>
+                                <span class="nav__link--text">Geolocation API</span>
                             </a>
                         </li>
                     </ul>
@@ -133,7 +146,7 @@
         <i class="fas fa-sync-alt"></i>
 
         <!--Spin on click?-->
-        <i class="fas fa-sync-alt fa-spin"></i>
+        <!-- <i class="fas fa-sync-alt"></i> -->
 
         <!--Delete-->
         <i class="fas fa-trash"></i>
@@ -144,23 +157,26 @@
         <br /><br />
 
         <!--Spinners (pick one)-->
-        <i class="fas fa-spinner-third fa-spin"></i>
-        <i class="far fa-circle-notch fa-spin"></i>
-        <i class="fas fa-spinner fa-spin"></i>
+        <div>
+            <i class="fas fa-spinner-third fa-spin"></i>
+            <i class="far fa-circle-notch fa-spin"></i>
+            <i class="fas fa-spinner fa-spin"></i>
+        </div>
 
         <!---->
 
         <main>
-            <section class="hero">
-                <!-- Add class hero--minify on secondary pages? -->
-                <h2 class="hero__heading">Welcome to Let's Taco 'Bout It!</h2>
-                <p class="hero__text">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos laboriosam quas
-                    veniam, deserunt perspiciatis odio eveniet quia itaque quisquam, hic, dicta quam corporis
-                    magni officia repudiandae blanditiis consequuntur nostrum earum.
-                </p>
-            </section>
             <div class="container">
+                <section class="hero">
+                    <!-- Add class hero--minify on secondary pages? -->
+                    <h2 class="hero__heading">Welcome to Let's Taco 'Bout It!</h2>
+                    <p class="hero__text">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos laboriosam quas
+                        veniam, deserunt perspiciatis odio eveniet quia itaque quisquam, hic, dicta quam
+                        corporis magni officia repudiandae blanditiis consequuntur nostrum earum.
+                    </p>
+                </section>
+
                 <section class="page landing-page">Landing Page</section>
                 <section class="page recipe-page">Recipe Page</section>
                 <section class="module yelp-form-module">Yelp Form</section>
@@ -178,5 +194,6 @@
                 </section>
             </div>
         </footer>
+        <script src="assets/js/toggleNav.js"></script>
     </body>
 </html>

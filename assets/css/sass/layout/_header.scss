@@ -1,0 +1,10 @@
+header {
+    margin-top: $spacing--2;
+    height: 5vh;
+
+    .container {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+}
