@@ -5,10 +5,14 @@
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: darken;
 
-    margin: 100px -3rem 0;
+    margin: 100px -3rem $spacing--2;
     height: 45vh;
     display: flex;
     flex-direction: column;
+
+    &.shrink {
+        height: 20vh;
+    }
 
     &__text {
         text-align: center;

@@ -1,5 +1,5 @@
 function updateTime() {
-    const currentTime = moment().format('hh:mm A');
+    const currentTime = moment().format('h:mm A');
     const currentDay = moment().format('dddd');
 
     const dest = document.querySelector('#current-time');
