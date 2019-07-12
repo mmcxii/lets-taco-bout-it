@@ -1,0 +1,37 @@
+// Colors
+$colors: (
+    dark--0: #555,
+    dark--1: #333,
+    dark--2: #222,
+    light--0: #eee,
+    light--1: #fff,
+    accent: red,
+);
+
+// Breakpoints
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+// Font Families
+$font-families: (
+    headings: serif,
+    body: sans-serif,
+);
+
+// Font Sizes
+$font-sizes: (
+    sm: 1rem,
+    md: 1.25rem,
+    lg: 2rem,
+);
+
+// Layout
+$spacing--1: 0.5rem;
+$spacing--2: 1rem;
+
+// Design
+$rounded: 5px;

@@ -1,0 +1,19 @@
+// Selects a color from the colors map
+@function clr($color) {
+    @return map-get($colors, $color);
+}
+
+// Selects a breakpoint from the breakpoints map
+@function bp($size) {
+    @return map-get($breakpoints, $size);
+}
+
+// Selects a font-family from the font-families map
+@function ff($fam) {
+    @return map-get($font-families, $fam);
+}
+
+// Selects a font-size from the font-sizes map
+@function fs($size) {
+    @return map-get($font-sizes, $size);
+}

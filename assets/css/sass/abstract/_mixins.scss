@@ -1,0 +1,6 @@
+// Creates a Breakpoint Media Query
+@mixin mq($breakpoint) {
+    @media screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
