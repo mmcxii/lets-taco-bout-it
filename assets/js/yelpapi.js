@@ -73,23 +73,23 @@ function updatePage(data, int) {
     }
 }
 
-const restaurauntBtn = document.getElementById('restaurant-btn')
+// const restaurauntBtn = document.getElementById('restaurant-btn')
 
-restaurauntBtn.addEventListener('click', () => {
-    const restSection = document.getElementById('yelp-form-module');
-    restSection.classList.remove('hide');
-})
+// restaurauntBtn.addEventListener('click', () => {
+//     const restSection = document.getElementById('yelp-form-module');
+//     restSection.classList.remove('hide');
+// })
 
-const yelpBtn = document.getElementById('yelp-submit');
+// const yelpBtn = document.getElementById('yelp-submit');
 
-yelpBtn.addEventListener('click', () => {
-    const zipInput = document.getElementById('zip-input');
-    const landing = document.getElementById('home');
-    const hero = document.getElementById('hero');
-    const zip = zipInput.value;
+// yelpBtn.addEventListener('click', () => {
+//     const zipInput = document.getElementById('zip-input');
+//     const landing = document.getElementById('home');
+//     const hero = document.getElementById('hero');
+//     const zip = zipInput.value;
 
-    landing.classList.add('hide');
-    hero.classList.add('shrink');
+//     landing.classList.add('hide');
+//     hero.classList.add('shrink');
 
-    searchYelp(zip, 10);
-})
+//     searchYelp(zip, 10);
+// })
