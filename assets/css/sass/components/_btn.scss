@@ -12,6 +12,12 @@
         background: clr(dark--1);
     }
 
+    &--trans {
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+
     &__icon {
         margin-right: $spacing--1;
 
