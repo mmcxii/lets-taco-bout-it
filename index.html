@@ -199,10 +199,17 @@
                         </section>
                     </section>
                 </section>
-                <section class="page recipe-page">Recipe Page</section>
-                <section class="module" id="yelp-form-module">Yelp Form</section>
+                <section class="page recipe-page hide">Recipe Page</section>
+                <section class="module hide" id="yelp-form-module">
+                    <form id="yelp-form">
+                        <label for="zip">Zip Code</label>
+                        <input type="text" name="zip" id="yelp-form__field" />
 
-                <section class="page restaurant-page">
+                        <button type="submit" id="yelp-form__btn--submit">Submit</button>
+                    </form>
+                </section>
+
+                <section class="page restaurant-page hide" id="rest">
                     <section class="card intro">
                         <section class="card__body">
                             <h3 class="card__title">Local Restaurants</h3>
@@ -221,7 +228,7 @@
             </div>
         </main>
 
-        <div>
+        <div class="hide">
             <!-- Icons -->
 
             <!--Button Icons-->
