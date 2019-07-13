@@ -25,7 +25,7 @@
 
                 <h1 class="title--main">Let's <span class="title--main__taco">Taco</span> 'Bout It</h1>
 
-                <button class="nav__toggle nav__toggle--open" id="nav__toggle--open">
+                <button class="nav__toggle nav__toggle--open btn--trans" id="nav__toggle--open">
                     <i class="far fa-bars"></i>
                 </button>
 
@@ -33,7 +33,7 @@
                     <section class="nav__banner">
                         <h2 class="nav__header">Meet the Taco 'Bout It Team</h2>
 
-                        <button class="nav__toggle nav__toggle--close" id="nav__toggle--close">
+                        <button class="nav__toggle nav__toggle--close btn--trans" id="nav__toggle--close">
                             <i class="far fa-times"></i>
                         </button>
                     </section>
@@ -128,8 +128,7 @@
 
         <main>
             <div class="container">
-                <section class="hero shrink">
-                    <!-- Add class hero--minify on secondary pages? -->
+                <section class="hero" id="hero">
                     <section class="hero__text">
                         <h2 class="hero__heading" id="hero-heading">
                             Welcome to Let's Taco 'Bout It!
@@ -201,13 +200,28 @@
                     </section>
                 </section>
                 <section class="page recipe-page">Recipe Page</section>
-                <section class="module yelp-form-module">Yelp Form</section>
-                <section class="page restaurant-page">Restaurant Page</section>
-                <section class="page hybrid-page">Hybrid Page</section>
+                <section class="module" id="yelp-form-module">Yelp Form</section>
+
+                <section class="page restaurant-page">
+                    <section class="card intro">
+                        <section class="card__body">
+                            <h3 class="card__title">Local Restaurants</h3>
+                            <section class="card__main">
+                                Well well well, look who decided to leave it to the pros. That's fine, we
+                                understand. Please take a look at the following selection of nearby
+                                restaurants. Feel free to remove restaurants you don't like or if you see one
+                                you do like go ahead and save it for later!
+                            </section>
+                        </section>
+                    </section>
+
+                    <section id="restaurant__list"></section>
+                </section>
+                <section class="page hybrid-page hide">Hybrid Page</section>
             </div>
         </main>
 
-        <div class="hide">
+        <div>
             <!-- Icons -->
 
             <!--Button Icons-->
