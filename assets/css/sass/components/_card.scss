@@ -1,0 +1,29 @@
+.card {
+    display: flex;
+    flex-direction: column;
+
+    border-radius: $rounded;
+    box-shadow: 8px 8px 6px -6px clr(dark--1);
+    padding: $spacing--2;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: $spacing--2;
+
+    &__title,
+    &__intro,
+    &__main {
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom: $spacing--2;
+    }
+
+    &__title {
+        border-radius: $rounded;
+        padding: $spacing--2;
+
+        margin-left: -$spacing--2;
+        margin-right: -$spacing--2;
+
+        background: clr(light--0);
+    }
+}

@@ -1,5 +1,13 @@
 .title {
     &--main {
         margin-left: $spacing--1;
+
+        &__taco {
+            color: transparent;
+            background: url(../img/logo.png) no-repeat;
+            background-position-y: 60%;
+            background-size: cover;
+            margin: 0;
+        }
     }
 }

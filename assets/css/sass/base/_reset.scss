@@ -14,20 +14,4 @@ body {
 
     font-size: fs(sm);
     transition: ease-in-out 300ms;
-
-    &.shift {
-        margin-left: 45vw;
-
-        @include mq(bp(md)) {
-            margin-left: 35vw;
-        }
-
-        @include mq(bp(lg)) {
-            margin-left: 25vw;
-        }
-
-        @include mq(bp(xl)) {
-            margin-left: 20vw;
-        }
-    }
 }

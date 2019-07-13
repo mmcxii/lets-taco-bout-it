@@ -14,5 +14,9 @@
 
     &__icon {
         margin-right: $spacing--1;
+
+        &--after {
+            margin-left: $spacing--1;
+        }
     }
 }
