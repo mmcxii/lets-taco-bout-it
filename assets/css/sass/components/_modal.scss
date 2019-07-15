@@ -1,0 +1,50 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    transition: ease-in-out 300ms;
+
+    &__btn {
+        &--close {
+            float: right;
+            font-size: fs(md);
+            line-height: fs(md);
+            transition: ease-in-out 300ms;
+            color: clr(dark--0);
+
+            &:hover {
+                color: clr(dark--1);
+            }
+        }
+    }
+
+    .card {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+
+        @include mq(bp(sm)) {
+            width: 80%;
+        }
+
+        @include mq(bp(md)) {
+            width: 70%;
+        }
+
+        @include mq(bp(lg)) {
+            width: 60%;
+        }
+
+        @include mq(bp(xl)) {
+            width: 50%;
+
+            max-width: 650px;
+        }
+    }
+}

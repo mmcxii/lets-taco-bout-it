@@ -1,20 +1,20 @@
-const openBtn = document.querySelector('#nav__toggle--open');
-const closeBtn = document.querySelector('#nav__toggle--close');
+const openNavBtn = document.querySelector('#nav__toggle--open');
+const closeNavBtn = document.querySelector('#nav__toggle--close');
 const navMenu = document.querySelector('#nav__menu');
 const body = document.querySelector('body');
 
-openBtn.addEventListener('click', () => {
+openNavBtn.addEventListener('click', () => {
     navMenu.classList.add('shift');
     body.classList.add('shift');
-    openBtn.classList.add('hidden');
+    openNavBtn.classList.add('hidden');
 });
 
-closeBtn.addEventListener('click', () => {
+closeNavBtn.addEventListener('click', () => {
     body.classList.remove('shift');
     navMenu.classList.remove('shift');
 
     // Delay return of hamburger button
     setTimeout(() => {
-        openBtn.classList.remove('hidden');
+        openNavBtn.classList.remove('hidden');
     }, 100);
 });
