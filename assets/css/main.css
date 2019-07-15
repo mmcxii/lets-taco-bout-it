@@ -334,8 +334,8 @@ footer .container {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.4);
   background-blend-mode: darken;
-  margin: 90px 0 1rem 0;
-  height: 40vh;
+  margin-bottom: 1rem;
+  height: 45vh;
   width: 100%;
   overflow: hidden;
   display: -webkit-box;
