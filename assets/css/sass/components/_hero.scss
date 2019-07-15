@@ -5,8 +5,10 @@
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: darken;
 
-    margin: 100px -3rem $spacing--2;
+    margin: 90px 0 $spacing--2 0;
     height: 45vh;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 
@@ -16,9 +18,21 @@
 
     &__text {
         text-align: center;
-        margin: auto 25%;
+        margin-top: auto;
 
+        font-weight: bolder;
+        letter-spacing: 8px;
         color: clr(light--0);
+        text-shadow: -1px -1px 0 clr(dark--2), 1px -1px 0 clr(dark--2), -1px 1px 0 clr(dark--2),
+            1px 1px 0 clr(dark--2);
+
+        @include mq(bp(sm)) {
+            margin-bottom: $spacing--2;
+        }
+
+        @include mq(bp(md)) {
+            margin: auto;
+        }
     }
 
     &__subtext {

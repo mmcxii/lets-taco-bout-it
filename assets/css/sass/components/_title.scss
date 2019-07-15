@@ -1,6 +1,7 @@
 .title {
     &--main {
         margin-left: $spacing--1;
+        color: clr(light--1);
 
         &__taco {
             color: transparent;
