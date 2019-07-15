@@ -424,8 +424,7 @@ footer .container {
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 1rem;
-  background: linear-gradient(170deg, #ff0000 0%, #f9b700 100%);
-  color: #fff;
+  background: linear-gradient(170deg, #e60000 0%, #e0a400 100%);
 }
 
 .card__title, .card__intro, .card__main {
