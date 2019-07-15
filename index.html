@@ -23,7 +23,9 @@
                     </button>
                 </section>
 
-                <h1 class="title--main">Let's <span class="title--main__taco">Taco</span> 'Bout It</h1>
+                <button class="btn--trans" id="go-home-btn">
+                    <h1 class="title--main">Let's <span class="title--main__taco">Taco</span> 'Bout It</h1>
+                </button>
 
                 <button class="nav__toggle nav__toggle--open btn--trans" id="nav__toggle--open">
                     <i class="far fa-bars"></i>
@@ -181,7 +183,7 @@
                                 experience from the options below:
                             </p>
 
-                            <section class="card__main options__list">
+                            <section class="card__main options__list" id="options-btns">
                                 <button class="btn options__btn" id="recipe-btn">
                                     <i class="btn__icon fas fa-taco"></i>
                                     Make My Own!
@@ -199,10 +201,43 @@
                         </section>
                     </section>
                 </section>
-                <section class="page recipe-page">Recipe Page</section>
-                <section class="module" id="yelp-form-module">Yelp Form</section>
+                <section class="page recipe-page hide" id="recipes">Recipe Page</section>
+                <section class="modal hide" id="yelp-form-modal">
+                    <section class="card">
+                        <section class="card__body">
+                            <h3 class="card__title">
+                                Where Can We Find You Tacos?
+                                <button class="btn--trans modal__btn--close" id="yelp-form-close">
+                                    <i class="far fa-times"></i>
+                                </button>
+                            </h3>
+                            <p class="card__intro">
+                                Please enter your zip code so we can find taquerias near you!
+                            </p>
+                            <section class="card__main">
+                                <form class="yelp-form" id="yelp-form">
+                                    <label class="yelp-form__label" for="zip">Zip Code</label>
+                                    <input
+                                        class="yelp-form__input"
+                                        type="text"
+                                        name="zip"
+                                        id="yelp-form__field"
+                                    />
 
-                <section class="page restaurant-page">
+                                    <button
+                                        class="yelp-form__btn btn"
+                                        type="submit"
+                                        id="yelp-form__btn--submit"
+                                    >
+                                        Submit
+                                    </button>
+                                </form>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+
+                <section class="page restaurant-page hide" id="rest">
                     <section class="card intro">
                         <section class="card__body">
                             <h3 class="card__title">Local Restaurants</h3>
@@ -217,11 +252,11 @@
 
                     <section id="restaurant__list"></section>
                 </section>
-                <section class="page hybrid-page hide">Hybrid Page</section>
+                <section class="page hybrid-page hide" id="hybrid">Hybrid Page</section>
             </div>
         </main>
 
-        <div>
+        <div class="hide">
             <!-- Icons -->
 
             <!--Button Icons-->
@@ -265,6 +300,8 @@
             </div>
         </footer>
         <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="assets/js/RestartApp.js"></script>
+        <script src="assets/js/Modal.js"></script>
         <script src="assets/js/GetTime.js"></script>
         <script src="assets/js/ToggleNav.js"></script>
         <script src="assets/js/yelpapi.js"></script>

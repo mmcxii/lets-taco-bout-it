@@ -1,0 +1,8 @@
+.yelp-form {
+    &__input {
+        border-radius: $rounded;
+        border: none;
+        padding: $spacing--1 $spacing--2;
+        background: clr(light--0);
+    }
+}
