@@ -27,13 +27,15 @@
     }
 
     &__info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        display: grid;
+        text-align: center;
+        justify-content: center;
         align-items: center;
+        grid-template-rows: repeat(6, auto-fill);
+        grid-gap: $spacing--2;
 
         @include mq(bp(lg)) {
-            flex-direction: row;
+            grid-template-columns: repeat(6, 1fr);
         }
     }
 
