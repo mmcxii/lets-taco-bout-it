@@ -1,7 +1,6 @@
 function searchYelp(zip, num) {
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
-
     fetch(
         `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&location=${zip}`,
         {
@@ -12,8 +11,10 @@ function searchYelp(zip, num) {
             },
         }
     )
-        .then((data) => data.json())
-        .then((data) => updatePage(data, num));
+        .then((data) => {
+           return data.json()})
+        .then((data) => {
+         updatePage(data, num)});
 }
 
 function updatePage(data, int) {
@@ -72,6 +73,7 @@ function updatePage(data, int) {
         restaurantSection.appendChild(newSection);
         count++;
     }
+    console.log('function complete');
 }
 
 const yelpModal = document.getElementById('yelp-form-modal');
