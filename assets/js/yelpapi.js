@@ -14,7 +14,8 @@ function searchYelp(zip, num) {
         .then((data) => data.json())
         .then((data) => {
             updatePage(data, num);
-
+            console.log(data);
+            console.log(data.businesses[0].url);
             const spinner = document.querySelector('.spinner');
             spinner.classList.add('hide');
         });
@@ -25,11 +26,14 @@ function updatePage(data, int) {
     let restaurantSection = document.getElementById('restaurant__list');
 
     for (let i = 0; i < int; i++) {
+        
+        //discuss with team and decide if we should add checks for undefined, or just remove price.
+        
         const info = data.businesses[i];
         const number = info.display_phone;
         const img = info.image_url;
         const price = info.price;
-        const link = info.transactions.url;
+        const link = info.url;
         const rating = info.rating;
         const name = info.name;
         const streetAddress = info.location.display_address[0];
@@ -41,7 +45,7 @@ function updatePage(data, int) {
         newSection.classList.add('restaurant');
         newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
-        <a href="${link}">${name}</a >
+        <a data-name="${count}" href="${link}">${name}</a >
     </h3 >
         <section class="card__body">
             <section class="restaurant__info">
@@ -64,10 +68,10 @@ function updatePage(data, int) {
             </section>
                 <section class="restaurant__fav-del">
                     <button class="restaurant__btn--fav btn--trans" data-fav="${count}">
-                        <i class="fas fa-star"></i>
+                        <i data-fav="${count}" class="fas fa-star"></i>
                     </button>
                     <button class="restaurant__btn--del btn--trans" data-del="${count}">
-                        <i class="fas fa-trash"></i>
+                        <i data-del="${count}" class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
@@ -76,7 +80,6 @@ function updatePage(data, int) {
         restaurantSection.appendChild(newSection);
         count++;
     }
-    console.log('function complete');
 }
 
 const yelpModal = document.getElementById('yelp-form-modal');
@@ -98,3 +101,18 @@ yelpBtn.addEventListener('click', (e) => {
 
     searchYelp(zip, 10);
 });
+
+const restaurantListener = document.getElementById('restaurant__list');
+
+restaurantListener.addEventListener('click', (e) => {
+    if (e.target.dataset.fav) {
+        let num = e.target.dataset.fav;
+        let name = document.querySelector('[data-name="'+ num + '"]');
+        
+        console.log(name.getAttribute('href'), name.text); //gets href and text brainstomr better ways to get values with THE boys or there will be a lot of variable declarations just to get favorites.
+    } else {
+        return;
+    }
+
+})
+
