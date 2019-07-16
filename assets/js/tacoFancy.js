@@ -49,7 +49,7 @@ function fetchNow(){
             }
             var converter = new showdown.Converter();
             
-            cardIntro.classList.add('rec_card_intro');
+            cardIntro.classList.add('reccard_intro');
             cardBody.classList.add('reccard_body');
             cardMain.classList.add('reccard_main');
             cardMain.classList.add('hide');
@@ -83,7 +83,7 @@ function fetchNow(){
     document.getElementById("recipe-btn").addEventListener('click', function () {
         fail = 0;
         end += 10;
-        const recipePage = document.getElementById('recipes');
+        const recipePage = document.getElementById('reccontent');
         const landingPage = document.getElementById('home');
         landingPage.classList.add('hide');
         recipePage.classList.remove('hide');
@@ -97,7 +97,7 @@ var coll = document.getElementById('reccontent');
     coll.addEventListener("click", function(event) {
    
 
-    if(!event.target.matches('.card__title')){
+    if(!event.target.matches('.reccard__title')){
         return;
     }else{
     var content = event.target.nextElementSibling;
