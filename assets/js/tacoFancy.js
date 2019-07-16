@@ -27,6 +27,10 @@ function fetchNow(){
 
             let button = document.createElement("button");
             let recipe = document.createElement("p");
+            let cardIntro = document.createElement('section');
+            let cardBody = document.createElement('section');
+            let cardMain = document.createElement('section');
+
             let shell = '';
             let seasoning = '';
             let condiment = '';
@@ -45,18 +49,27 @@ function fetchNow(){
             }
             var converter = new showdown.Converter();
             
+            cardIntro.classList.add('rec_card_intro');
+            cardBody.classList.add('reccard_body');
+            cardMain.classList.add('reccard_main');
+            cardMain.classList.add('hide');
+
             //write name to button
             button.innerHTML = myJson.name;
-            button.classList.add("card__title");
+            button.classList.add("reccard__title");
             
-            recipe.innerHTML = converter.makeHtml(myJson.base_layer.recipe)  + '<br>' + converter.makeHtml(shell) + '<br>' + converter.makeHtml(seasoning) + '<br>' + converter.makeHtml(condiment) + '<br>' + converter.makeHtml(mixin);
-            recipe.classList.add("card__body")
-            recipe.classList.add("hide");
+            recipe.innerHTML = converter.makeHtml(myJson.base_layer.recipe)  + converter.makeHtml(shell) + converter.makeHtml(seasoning) + converter.makeHtml(condiment) + converter.makeHtml(mixin);
+            
+            //append everything
+            let content = document.getElementById("reccontent");
+            
+            cardMain.append(recipe);
+            cardBody.append(button);
+            cardBody.append(cardMain);
+            cardIntro.append(cardBody);
 
-            let content = document.getElementById("tacoFancyContent");
-            
-            content.append(button);
-            content.append(recipe);
+           // content.append(button);
+            content.append(cardIntro);
             used.push(myJson.name);
         }
            fetchNow();      
@@ -71,7 +84,8 @@ function fetchNow(){
         fail = 0;
         end += 10;
         const recipePage = document.getElementById('recipes');
-
+        const landingPage = document.getElementById('home');
+        landingPage.classList.add('hide');
         recipePage.classList.remove('hide');
         fetchNow();
         
@@ -79,7 +93,7 @@ function fetchNow(){
 
 
 
-var coll = document.getElementById('tacoFancyContent');
+var coll = document.getElementById('reccontent');
     coll.addEventListener("click", function(event) {
    
 
