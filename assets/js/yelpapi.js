@@ -11,10 +11,13 @@ function searchYelp(zip, num) {
             },
         }
     )
+        .then((data) => data.json())
         .then((data) => {
-           return data.json()})
-        .then((data) => {
-         updatePage(data, num)});
+            updatePage(data, num);
+
+            const spinner = document.querySelector('.spinner');
+            spinner.classList.add('hide');
+        });
 }
 
 function updatePage(data, int) {

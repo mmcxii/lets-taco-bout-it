@@ -6,8 +6,8 @@ footer {
     border-top-left-radius: $rounded;
     border-top-right-radius: $rounded;
 
-    background: clr(light--0);
-    box-shadow: 0 -8px 8px -7px clr(dark--1);
+    background: clr(gradient);
+    box-shadow: 0 -8px 8px -7px red;
 
     .container {
         display: flex;
