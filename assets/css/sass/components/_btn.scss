@@ -1,16 +1,18 @@
 .btn {
-    border-radius: $rounded;
+    border-radius: 2rem;
     border: none;
     padding: $spacing--1;
     cursor: pointer;
-    transition: ease-in-out 300ms;
+    transition: 600ms;
     color: clr(dark--0);
-    background: clr(light--1);
+    background-image: clr(gradient-2--darker--hov);
+    background-size: 200%;
     font-weight: bolder;
+    height: 2rem;
 
     &:hover,
     &:focus {
-        background: clr(light--0);
+        background-position: right;
     }
 
     &--trans {

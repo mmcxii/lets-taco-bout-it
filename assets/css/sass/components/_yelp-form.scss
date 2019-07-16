@@ -1,8 +1,37 @@
 .yelp-form {
     &__input {
-        border-radius: $rounded;
+        background: transparent;
         border: none;
+        outline: none;
+        margin-left: $spacing--2;
+        max-width: 50%;
+        color: clr(light--0);
+
+        &::placeholder {
+            color: clr(light--0);
+            font-weight: bolder;
+        }
+
+        @include mq(bp(sm)) {
+            max-width: 60%;
+        }
+    }
+
+    &__wrapper {
+        display: inline-block;
         padding: $spacing--1 $spacing--2;
-        background: clr(light--0);
+        border-radius: 2rem;
+        background-image: clr(gradient-2--darker);
+        box-shadow: 8px 8px 6px -6px clr(dark--0);
+    }
+
+    &__btn {
+        background: transparent;
+        color: clr(accent-blue);
+        transition: all ease-in-out 300ms;
+
+        &:hover {
+            color: darken(clr(accent-blue), 10);
+        }
     }
 }

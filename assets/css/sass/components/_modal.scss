@@ -10,7 +10,9 @@
 
     &__btn {
         &--close {
-            float: right;
+            position: absolute;
+            top: $spacing--2;
+            right: $spacing--2;
             font-size: fs(md);
             line-height: fs(md);
             transition: ease-in-out 300ms;

@@ -1,20 +1,20 @@
-/* width */
+// Width
 ::-webkit-scrollbar {
     width: 0.5vw;
 }
 
-/* Track */
+// Track
 ::-webkit-scrollbar-track {
     background: darken(clr(bg), 15);
 }
 
-/* Handle */
+// Handle
 ::-webkit-scrollbar-thumb {
-    background: clr(gradient);
+    background: clr(gradient-1);
     border-radius: $rounded;
 }
 
-/* Handle on hover */
+// Handle on hover
 ::-webkit-scrollbar-thumb:hover {
-    background: clr(gradient--hov);
+    background: clr(gradient-1--darker);
 }

@@ -9,9 +9,14 @@ $colors: (
     light--0: #eee,
     light--1: #fff,
     accent: darken(#f9b700, 10),
+    accent-blue: darken(lightblue, 25),
     bg: lighten(lightblue, 5),
-    gradient: linear-gradient(170deg, #ff0000 0%, #f9b700 100%),
-    gradient--hov: linear-gradient(170deg, darken(#ff0000, 5) 0%, darken(#f9b700, 5) 100%),
+    gradient-1: linear-gradient(170deg, #ff0000 0%, #f9b700 100%),
+    gradient-1--darker: linear-gradient(170deg, darken(#ff0000, 5) 0%, darken(#f9b700, 5) 100%),
+    gradient-2: linear-gradient(to right, lightblue 0%, #fff 100%),
+    gradient-2--darker: linear-gradient(to right, darken(lightblue, 10) 0%, darken(#fff, 10) 100%),
+    gradient-2--darker--hov:
+        linear-gradient(to left, darken(lightblue, 10), darken(#fff, 10), darken(lightblue, 10)),
 );
 
 // Breakpoints
