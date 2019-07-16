@@ -1,22 +1,4 @@
 .container {
-    width: 95%;
+    width: calc(100vw - 6rem);
     margin: 0 auto;
-
-    @include mq(bp(sm)) {
-        width: 90%;
-    }
-
-    @include mq(bp(md)) {
-        width: 85%;
-    }
-
-    @include mq(bp(lg)) {
-        width: 80%;
-    }
-
-    @include mq(bp(xl)) {
-        width: 75%;
-
-        max-width: 1200px;
-    }
 }

@@ -14,10 +14,10 @@
             font-size: fs(md);
             line-height: fs(md);
             transition: ease-in-out 300ms;
-            color: clr(light--1);
+            color: clr(dark--0);
 
             &:hover {
-                color: clr(light--0);
+                color: clr(dark--1);
             }
         }
     }
@@ -28,7 +28,6 @@
         top: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        box-shadow: 8px 8px 6px -6px #333;
 
         @include mq(bp(sm)) {
             width: 80%;

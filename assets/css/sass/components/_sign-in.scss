@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-bottom: $spacing--2;
 
-    @include mq(bp(lg)) {
-        margin-left: auto;
-    }
+    margin-left: auto;
 }

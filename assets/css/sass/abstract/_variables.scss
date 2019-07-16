@@ -1,6 +1,3 @@
-// Import Fonts from Google
-@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap');
-
 // Colors
 $colors: (
     dark--0: #555,
@@ -8,10 +5,7 @@ $colors: (
     dark--2: #222,
     light--0: #eee,
     light--1: #fff,
-    accent: darken(#f9b700, 10),
-    bg: lighten(lightblue, 5),
-    gradient: linear-gradient(170deg, #ff0000 0%, #f9b700 100%),
-    gradient--hov: linear-gradient(170deg, darken(#ff0000, 5) 0%, darken(#f9b700, 5) 100%),
+    accent: red,
 );
 
 // Breakpoints
@@ -23,8 +17,10 @@ $breakpoints: (
 );
 
 // Font Families
-$ff-h: 'Oswald', sans-serif;
-$ff-b: 'Raleway', sans-serif;
+$font-families: (
+    headings: serif,
+    body: sans-serif,
+);
 
 // Font Sizes
 $font-sizes: (

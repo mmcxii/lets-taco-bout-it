@@ -4,7 +4,6 @@ const optionsBtns = document.querySelector('#options-btns');
 
 closeModalBtn.addEventListener('click', closeModal);
 optionsBtns.addEventListener('click', openModal);
-window.addEventListener('click', outsideClick);
 
 function closeModal() {
     modal.classList.add('hide');
@@ -13,11 +12,5 @@ function closeModal() {
 function openModal(e) {
     if (e.target.id === 'restaurant-btn' || e.target.id === 'hybrid-btn') {
         modal.classList.remove('hide');
-    }
-}
-
-function outsideClick(e) {
-    if (e.target === modal) {
-        closeModal();
     }
 }

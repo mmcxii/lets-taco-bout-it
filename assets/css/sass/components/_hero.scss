@@ -5,36 +5,20 @@
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: darken;
 
-    margin-top: 90px;
-    margin-bottom: $spacing--2;
+    margin: 100px -3rem $spacing--2;
     height: 45vh;
-    width: 100%;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 
     &.shrink {
-        height: 30vh;
+        height: 20vh;
     }
 
     &__text {
         text-align: center;
-        margin-top: auto;
+        margin: auto 25%;
 
-        font-weight: bolder;
-        letter-spacing: 8px;
-        text-transform: capitalize;
         color: clr(light--0);
-        text-shadow: -1px -1px 0 clr(dark--2), 1px -1px 0 clr(dark--2), -1px 1px 0 clr(dark--2),
-            1px 1px 0 clr(dark--2);
-
-        @include mq(bp(sm)) {
-            margin-bottom: $spacing--2;
-        }
-
-        @include mq(bp(md)) {
-            margin: auto;
-        }
     }
 
     &__subtext {

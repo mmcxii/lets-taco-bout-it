@@ -1,16 +1,15 @@
 .btn {
     border-radius: $rounded;
     border: none;
-    padding: $spacing--1;
+    padding: $spacing--1 $spacing--2;
     cursor: pointer;
     transition: ease-in-out 300ms;
-    color: clr(dark--0);
-    background: clr(light--1);
-    font-weight: bolder;
+    color: clr(light--0);
+    background: clr(dark--2);
 
     &:hover,
     &:focus {
-        background: clr(light--0);
+        background: clr(dark--1);
     }
 
     &--trans {
@@ -21,11 +20,9 @@
 
     &__icon {
         margin-right: $spacing--1;
-        color: clr(dark--2);
 
         &--after {
             margin-left: $spacing--1;
-            color: clr(dark--2);
         }
     }
 }
