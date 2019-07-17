@@ -217,3 +217,22 @@ function updateRestFavorites() {
         count++;
     }
 }
+
+const locationBtn = document.getElementById('location-btn');
+
+locationBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const landing = document.getElementById('home');
+    const hero = document.getElementById('hero');
+    const restPage = document.getElementById('rest');
+    
+    landing.classList.add('hide');
+    hero.classList.add('shrink');
+    restPage.classList.remove('hide');
+    yelpModal.classList.add('hide');
+
+    console.log(lat);
+    console.log(long);
+    searchYelp('', 10, lat, long);
+})
