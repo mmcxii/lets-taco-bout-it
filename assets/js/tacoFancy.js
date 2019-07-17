@@ -3,7 +3,7 @@ let fail = 0;
 let end = 0;
 
 function fetchNow(){
-    fetch('http://taco-randomizer.herokuapp.com/random/?full-taco=true')
+    fetch('https://taco-randomizer.herokuapp.com/random/?full-taco=true')
     .then(function (response) {
         return response.json();
     })
@@ -25,7 +25,7 @@ function fetchNow(){
         }
         if(isNew){
 
-            let button = document.createElement("button");
+            let button = document.createElement("h3");
             let recipe = document.createElement("p");
             let cardIntro = document.createElement('section');
             let cardBody = document.createElement('section');
@@ -49,14 +49,16 @@ function fetchNow(){
             }
             var converter = new showdown.Converter();
             
-            cardIntro.classList.add('reccard_intro');
-            cardBody.classList.add('reccard_body');
-            cardMain.classList.add('reccard_main');
+            cardIntro.classList.add('reccard');
+            cardIntro.classList.add('card');
+            cardBody.classList.add('card__body');
+            cardMain.classList.add('card__main');
             cardMain.classList.add('hide');
 
             //write name to button
             button.innerHTML = myJson.name;
             button.classList.add("reccard__title");
+            button.classList.add("card__title");
             
             recipe.innerHTML = converter.makeHtml(myJson.base_layer.recipe)  + converter.makeHtml(shell) + converter.makeHtml(seasoning) + converter.makeHtml(condiment) + converter.makeHtml(mixin);
             
@@ -83,7 +85,7 @@ function fetchNow(){
     document.getElementById("recipe-btn").addEventListener('click', function () {
         fail = 0;
         end += 10;
-        const recipePage = document.getElementById('reccontent');
+        const recipePage = document.getElementById('rec');
         const landingPage = document.getElementById('home');
         landingPage.classList.add('hide');
         recipePage.classList.remove('hide');
@@ -97,7 +99,7 @@ var coll = document.getElementById('reccontent');
     coll.addEventListener("click", function(event) {
    
 
-    if(!event.target.matches('.reccard__title')){
+    if(!event.target.matches('.card__title')){
         return;
     }else{
     var content = event.target.nextElementSibling;
