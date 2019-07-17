@@ -166,7 +166,6 @@ restaurantListener.addEventListener('click', (e) => {
 
 function updateRestFavorites() {
 
-    let count = 0;
     const favRest = document.getElementById('favs-restaurants');
 
     for (let i=0; i < restaurantFavorites.length; i++){
@@ -185,7 +184,7 @@ function updateRestFavorites() {
         
         newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
-        <a data-name="${count}" href="${link}" target="new">${name}</a >
+        <a data-name="${i}" href="${link}" target="new">${name}</a >
     </h3 >
         <section class="card__body">
             <section class="restaurant__info">
@@ -193,28 +192,27 @@ function updateRestFavorites() {
                     <img class="restaurant__photo__item" src="${img}"/>
                 </aside>
                 <section class="restaurant__location">
-                    <section data-address="${count}" class="restaurant__address">
+                    <section data-address="${i}" class="restaurant__address">
                         ${address}
                 </section>
                 </section>
-                <section data-rating="${count}" class="restaurant__rating">
+                <section data-rating="${i}" class="restaurant__rating">
                 ${rating}/5
                 </section>
-                <section data-price="${count}" class="restaurant__price">
+                <section data-price="${i}" class="restaurant__price">
                 ${price}
                 </section>
-                <section data-phone="${count}" class="restaurant__contact">
+                <section data-phone="${i}" class="restaurant__contact">
                     ${phone}
             </section>
                 <section class="restaurant__fav-del">
-                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
-                        <i data-del="${count}" class="fas fa-trash"></i>
+                    <button class="rec-rest__btn--del btn--trans" data-del="${i}">
+                        <i data-del="${i}" class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
         </section>`
         favRest.appendChild(newSection);
-        count++;
     }
 }
 
@@ -226,7 +224,7 @@ locationBtn.addEventListener('click', (e) => {
     const landing = document.getElementById('home');
     const hero = document.getElementById('hero');
     const restPage = document.getElementById('rest');
-    
+
     landing.classList.add('hide');
     hero.classList.add('shrink');
     restPage.classList.remove('hide');
