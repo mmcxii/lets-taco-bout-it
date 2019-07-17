@@ -779,3 +779,63 @@ footer .container {
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+.reccard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  -webkit-box-shadow: 8px 8px 6px -6px red;
+          box-shadow: 8px 8px 6px -6px red;
+  padding: 1rem;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background: linear-gradient(170deg, #e60000 0%, #e0a400 100%);
+}
+
+.reccard__title, .reccard__intro, .reccard__main {
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.reccard__icon {
+  padding: 5px;
+}
+
+.reccard__title {
+  border-radius: 5px;
+  padding: 1rem;
+  width: 100%;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background: rgba(0, 0, 0, 0.05);
+  color: #fff;
+}
+
+.rec-rest__btn--fav, .rec-rest__btn--del {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+}
+
+.rec-rest__btn--fav {
+  color: #c69200;
+}
+
+.rec-rest__btn--fav:hover {
+  color: #ad7f00;
+}
+
+.rec-rest__btn--del {
+  color: #555;
+}
+
+.rec-rest__btn--del:hover {
+  color: #484848;
+}
