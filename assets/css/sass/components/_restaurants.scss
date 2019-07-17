@@ -1,4 +1,22 @@
 .restaurant {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: $spacing--2;
+
+        @include mq(bp(md)) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mq(bp(lg)) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include mq(bp(xl)) {
+            grid-template-columns: repeat(auto-fill, 1fr);
+        }
+    }
+
     &__title {
         a {
             text-decoration: none;
@@ -33,10 +51,6 @@
         align-items: center;
         grid-template-rows: repeat(6, auto-fill);
         grid-gap: $spacing--2;
-
-        @include mq(bp(lg)) {
-            grid-template-columns: repeat(6, 1fr);
-        }
     }
 
     &__photo {

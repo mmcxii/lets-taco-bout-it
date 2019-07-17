@@ -20,12 +20,13 @@ body {
           flex-direction: column;
   overflow-x: hidden;
   font-size: 1rem;
-  background: -webkit-gradient(linear, left top, right top, from(#86c5da), to(#e6e6e6));
-  background: linear-gradient(to right, #86c5da 0%, #e6e6e6 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#4baac8), to(#bfbfbf));
+  background: linear-gradient(to right, #4baac8 0%, #bfbfbf 100%);
 }
 
 * {
   font-family: "Raleway", sans-serif;
+  font-weight: bolder;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -162,7 +163,7 @@ footer .container {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(170deg, #e60000 0%, #e0a400 100%);
+  background: linear-gradient(170deg, #c70000 0%, #c18e00 100%);
 }
 
 /* Components */
@@ -379,7 +380,7 @@ footer .container {
   font-size: calc(1.75rem * 0.75);
 }
 
-.sign-in {
+.user-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -393,9 +394,13 @@ footer .container {
 }
 
 @media screen and (min-width: 992px) {
-  .sign-in {
+  .user-info {
     margin-left: auto;
   }
+}
+
+.user-info .btn:first-child {
+  margin-bottom: 0.5rem;
 }
 
 .title--main {
@@ -426,7 +431,7 @@ footer .container {
   padding-top: 0;
   margin-top: 0;
   margin-bottom: 1rem;
-  background: linear-gradient(170deg, #e60000 0%, #e0a400 100%);
+  background: linear-gradient(170deg, #c70000 0%, #c18e00 100%);
 }
 
 .card__title, .card__intro, .card__main {
@@ -568,6 +573,35 @@ footer .container {
   margin: 1rem;
 }
 
+.restaurant__list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .restaurant__list {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .restaurant__list {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .restaurant__list {
+    -ms-grid-columns: (1fr)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 1fr);
+  }
+}
+
 .restaurant__title a {
   text-decoration: none;
   color: inherit;
@@ -610,13 +644,6 @@ footer .container {
   -ms-grid-rows: (auto-fill)[6];
       grid-template-rows: repeat(6, auto-fill);
   grid-gap: 1rem;
-}
-
-@media screen and (min-width: 992px) {
-  .restaurant__info {
-    -ms-grid-columns: (1fr)[6];
-        grid-template-columns: repeat(6, 1fr);
-  }
 }
 
 .restaurant__photo__item {
@@ -707,21 +734,21 @@ footer .container {
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
-  background-image: -webkit-gradient(linear, left top, right top, from(#86c5da), to(#e6e6e6));
-  background-image: linear-gradient(to right, #86c5da 0%, #e6e6e6 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#4baac8), to(#bfbfbf));
+  background-image: linear-gradient(to right, #4baac8 0%, #bfbfbf 100%);
   -webkit-box-shadow: 8px 8px 6px -6px #555;
           box-shadow: 8px 8px 6px -6px #555;
 }
 
 .yelp-form__btn {
   background: transparent;
-  color: #4baac8;
+  color: #2e7e99;
   -webkit-transition: all ease-in-out 300ms;
   transition: all ease-in-out 300ms;
 }
 
 .yelp-form__btn:hover {
-  color: #348fac;
+  color: #235e71;
 }
 
 .yelp-form__btn--white {
@@ -751,6 +778,7 @@ footer .container {
   border: none;
   border-radius: 5px;
   height: 2px;
+  background: linear-gradient(170deg, #ff0000 0%, #f9b700 100%);
 }
 
 .spinner {
