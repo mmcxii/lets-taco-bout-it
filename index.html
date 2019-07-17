@@ -209,32 +209,36 @@
                         <section class="card__body">
                             <h3 class="card__title">
                                 Where Can We Find You Tacos?
-                                <button class="btn--trans modal__btn--close" id="yelp-form-close">
-                                    <i class="far fa-times"></i>
-                                </button>
                             </h3>
                             <p class="card__intro">
                                 Please enter your zip code so we can find taquerias near you!
                             </p>
                             <section class="card__main">
                                 <form class="yelp-form" id="yelp-form">
-                                    <label class="yelp-form__label" for="zip">Zip Code</label>
-                                    <input
-                                        class="yelp-form__input"
-                                        type="text"
-                                        name="zip"
-                                        id="yelp-form__field"
-                                    />
+                                    <div class="yelp-form__wrapper">
+                                        <input
+                                            class="yelp-form__input"
+                                            type="text"
+                                            name="zip"
+                                            id="yelp-form__field"
+                                            placeholder="Zip Code"
+                                        />
 
-                                    <button
-                                        class="yelp-form__btn btn"
-                                        type="submit"
-                                        id="yelp-form__btn--submit"
-                                    >
-                                        Submit
-                                    </button>
+                                        <button
+                                            class="yelp-form__btn btn"
+                                            type="submit"
+                                            id="yelp-form__btn--submit"
+                                        >
+                                            Submit
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
                                 </form>
                             </section>
+
+                            <button class="btn--trans modal__btn--close" id="yelp-form-close">
+                                <i class="far fa-times"></i>
+                            </button>
                         </section>
                     </section>
                 </section>
@@ -247,7 +251,8 @@
                                 Well well well, look who decided to leave it to the pros. That's fine, we
                                 understand. Please take a look at the following selection of nearby
                                 restaurants. Feel free to remove restaurants you don't like or if you see one
-                                you do like go ahead and save it for later!
+                                you do like go ahead and save it for later! To see a restaurant's Yelp Page,
+                                click on its name.
                             </section>
                         </section>
                     </section>
@@ -283,6 +288,8 @@
         <script src="assets/js/Modal.js"></script>
         <script src="assets/js/GetTime.js"></script>
         <script src="assets/js/ToggleNav.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
+       <script src="assets/js/tacoFancy.js"></script>
 
         <!-- Back End JS -->
         <script src="assets/js/yelpapi.js"></script>

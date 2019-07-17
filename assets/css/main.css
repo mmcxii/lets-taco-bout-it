@@ -20,7 +20,8 @@ body {
           flex-direction: column;
   overflow-x: hidden;
   font-size: 1rem;
-  background: #c1e1ec;
+  background: -webkit-gradient(linear, left top, right top, from(#86c5da), to(#e6e6e6));
+  background: linear-gradient(to right, #86c5da 0%, #e6e6e6 100%);
 }
 
 * {
@@ -29,6 +30,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Oswald", sans-serif;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-family: inherit;
 }
 
 body {
@@ -143,23 +148,19 @@ footer .container {
   transition: ease-in-out 300ms;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 0.5vw;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #86c5da;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(170deg, #ff0000 0%, #f9b700 100%);
   border-radius: 5px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(170deg, #e60000 0%, #e0a400 100%);
 }
@@ -456,7 +457,9 @@ footer .container {
 }
 
 .modal__btn--close {
-  float: right;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   font-size: 1.25rem;
   line-height: 1.25rem;
   -webkit-transition: ease-in-out 300ms;
@@ -505,19 +508,22 @@ footer .container {
 }
 
 .btn {
-  border-radius: 5px;
+  border-radius: 2rem;
   border: none;
   padding: 0.5rem;
   cursor: pointer;
-  -webkit-transition: ease-in-out 300ms;
-  transition: ease-in-out 300ms;
+  -webkit-transition: 600ms;
+  transition: 600ms;
   color: #555;
-  background: #fff;
+  background-image: -webkit-gradient(linear, right top, left top, from(#86c5da), color-stop(#e6e6e6), to(#86c5da));
+  background-image: linear-gradient(to left, #86c5da, #e6e6e6, #86c5da);
+  background-size: 200%;
   font-weight: bolder;
+  height: 2rem;
 }
 
 .btn:hover, .btn:focus {
-  background: #eee;
+  background-position: right;
 }
 
 .btn--trans {
@@ -670,23 +676,74 @@ footer .container {
   line-height: 4rem;
   border-radius: 50%;
   cursor: pointer;
-  -webkit-transition: ease-in-out 300ms;
-  transition: ease-in-out 300ms;
+  -webkit-transition: 300ms;
+  transition: 300ms;
   -webkit-box-shadow: 3px 8px 6px -6px red;
           box-shadow: 3px 8px 6px -6px red;
   color: #c69200;
-  background: #fff;
+  background-image: -webkit-gradient(linear, right top, left top, from(#86c5da), color-stop(#e6e6e6), to(#86c5da));
+  background-image: linear-gradient(to left, #86c5da, #e6e6e6, #86c5da);
+  background-size: 200%;
 }
 
 .social__icon:hover, .social__icon:focus {
-  background: #eee;
+  background-position: right;
 }
 
 .yelp-form__input {
-  border-radius: 5px;
+  background: transparent;
   border: none;
+  outline: none;
+  margin-left: 1rem;
+  max-width: 50%;
+  color: #eee;
+}
+
+.yelp-form__input::-webkit-input-placeholder {
+  color: #eee;
+  font-weight: bolder;
+}
+
+.yelp-form__input:-ms-input-placeholder {
+  color: #eee;
+  font-weight: bolder;
+}
+
+.yelp-form__input::-ms-input-placeholder {
+  color: #eee;
+  font-weight: bolder;
+}
+
+.yelp-form__input::placeholder {
+  color: #eee;
+  font-weight: bolder;
+}
+
+@media screen and (min-width: 576px) {
+  .yelp-form__input {
+    max-width: 60%;
+  }
+}
+
+.yelp-form__wrapper {
+  display: inline-block;
   padding: 0.5rem 1rem;
-  background: #eee;
+  border-radius: 2rem;
+  background-image: -webkit-gradient(linear, left top, right top, from(#86c5da), to(#e6e6e6));
+  background-image: linear-gradient(to right, #86c5da 0%, #e6e6e6 100%);
+  -webkit-box-shadow: 8px 8px 6px -6px #555;
+          box-shadow: 8px 8px 6px -6px #555;
+}
+
+.yelp-form__btn {
+  background: transparent;
+  color: #4baac8;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.yelp-form__btn:hover {
+  color: #348fac;
 }
 
 .intro {
@@ -705,7 +762,6 @@ footer .container {
   border: none;
   border-radius: 5px;
   height: 2px;
-  background: linear-gradient(170deg, #ff0000 0%, #f9b700 100%);
 }
 
 .spinner {
