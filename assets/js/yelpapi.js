@@ -121,8 +121,7 @@ yelpBtn.addEventListener('click', (e) => {
     restPage.classList.remove('hide');
     yelpModal.classList.add('hide');
 
-    // searchYelp(zip, 10);
-    searchYelp('', 10, '47.6324463', '-122.1545743');
+    searchYelp(zip, 10);
 });
 
 const restaurantListener = document.getElementById('restaurant__list');
