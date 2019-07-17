@@ -1,10 +1,6 @@
 
-let api_url = 'https://api.opencagedata.com/geocode/v1/json'
-let api_key = '2e9cd35643fe49fc961504b9f362dff5'
 let long;
 let lat;
-let query_url;
-let localZip;
 geolocation();
 
 function geolocation(){
@@ -19,12 +15,6 @@ function geolocation(){
 
     lat = crd.latitude
     long = crd.longitude
-    query_url = api_url 
-    + '?' 
-    + 'key=' 
-    + api_key 
-    + '&q=' + encodeURIComponent(lat + ',' + long);
-    //getZip();
   }
   
   function error(err) {
@@ -32,15 +22,5 @@ function geolocation(){
   }
   
   navigator.geolocation.getCurrentPosition(success, error, options);
-}
-
-function getZip(){
-    fetch(query_url)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (myJson) {
-        localZip = myJson.results[0].components.postcode
-    })
 }
 
