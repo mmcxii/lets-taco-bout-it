@@ -1,3 +1,7 @@
+let restaurantFavorites = [];
+
+
+
 function searchYelp(zip, num) {
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
@@ -14,8 +18,6 @@ function searchYelp(zip, num) {
         .then((data) => data.json())
         .then((data) => {
             updatePage(data, num);
-            console.log(data);
-            console.log(data.businesses[0].url);
             const spinner = document.querySelector('.spinner');
             spinner.classList.add('hide');
         });
@@ -25,6 +27,8 @@ function updatePage(data, int) {
     let count = 0;
     let restaurantSection = document.getElementById('restaurant__list');
 
+    restaurantSection.innerHTML = '';
+
     for (let i = 0; i < int; i++) {
         
         //discuss with team and decide if we should add checks for undefined, or just remove price.
@@ -32,7 +36,7 @@ function updatePage(data, int) {
         const info = data.businesses[i];
         const number = info.display_phone;
         const img = info.image_url;
-        const price = info.price;
+        let price = info.price;
         const link = info.url;
         const rating = info.rating;
         const name = info.name;
@@ -40,12 +44,16 @@ function updatePage(data, int) {
         const cityAddress = info.location.display_address[1];
         const address = streetAddress + ' ' + cityAddress;
 
+        if (price === undefined) {
+            price = 'Price unavailable';
+        }
+
         const newSection = document.createElement('section');
         newSection.classList.add('card');
         newSection.classList.add('restaurant');
         newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
-        <a data-name="${count}" href="${link}">${name}</a >
+        <a data-name="${count}" href="${link}" target="new">${name}</a >
     </h3 >
         <section class="card__body">
             <section class="restaurant__info">
@@ -53,24 +61,24 @@ function updatePage(data, int) {
                     <img class="restaurant__photo__item" src="${img}"/>
                 </aside>
                 <section class="restaurant__location">
-                    <section class="restaurant__address">
+                    <section data-address="${count}" class="restaurant__address">
                         ${address}
                 </section>
                 </section>
-                <section class="restaurant__rating">
+                <section data-rating="${count}" class="restaurant__rating">
                 ${rating}/5
                 </section>
-                <section class="restaurant__price">
+                <section data-price="${count}" class="restaurant__price">
                 ${price}
                 </section>
-                <section class="restaurant__contact">
+                <section data-phone="${count}" class="restaurant__contact">
                     ${number}
             </section>
                 <section class="restaurant__fav-del">
-                    <button class="restaurant__btn--fav btn--trans" data-fav="${count}">
+                    <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
                         <i data-fav="${count}" class="fas fa-star"></i>
                     </button>
-                    <button class="restaurant__btn--del btn--trans" data-del="${count}">
+                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
                         <i data-del="${count}" class="fas fa-trash"></i>
                     </button>
                 </section>
@@ -106,10 +114,34 @@ const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
     if (e.target.dataset.fav) {
-        let num = e.target.dataset.fav;
-        let name = document.querySelector('[data-name="'+ num + '"]');
         
-        console.log(name.getAttribute('href'), name.text); //gets href and text brainstomr better ways to get values with THE boys or there will be a lot of variable declarations just to get favorites.
+        const num = e.target.dataset.fav;
+        const nameEl = document.querySelector('[data-name="'+ num + '"]');
+        const addressEl = document.querySelector('[data-address="'+ num + '"]');
+        const ratingEl = document.querySelector('[data-rating="'+ num + '"]');
+        const priceEl = document.querySelector('[data-price="'+ num + '"]');
+        const phoneEl = document.querySelector('[data-phone="'+ num + '"]');
+        
+        const link = nameEl.getAttribute('href');
+        const name = nameEl.text.trim();
+        const address = addressEl.textContent.trim();
+        const rating = ratingEl.textContent.trim();
+        const price = priceEl.textContent.trim();
+        const phone = phoneEl.textContent.trim();
+
+        let obj = {
+            'link': link,
+            'name': name,
+            'address': address,
+            'rating': rating,
+            'price': price,
+            'phone': phone
+        }
+
+        restaurantFavorites.push(obj);
+        localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
+
+
     } else {
         return;
     }
