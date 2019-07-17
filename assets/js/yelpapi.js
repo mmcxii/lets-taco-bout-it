@@ -1,17 +1,24 @@
-
-
 function searchYelp(zip, num) {
-    const yelpApiKey = '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
-
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&location=${zip}`, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${yelpApiKey}`,
-            'Access-Control-Allow-Origin': '*'
-        },
-    })
+    const yelpApiKey =
+        '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
+    fetch(
+        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&location=${zip}`,
+        {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${yelpApiKey}`,
+                'Access-Control-Allow-Origin': '*',
+            },
+        }
+    )
         .then((data) => data.json())
-        .then((data) => updatePage(data, num));
+        .then((data) => {
+            updatePage(data, num);
+            console.log(data);
+            console.log(data.businesses[0].url);
+            const spinner = document.querySelector('.spinner');
+            spinner.classList.add('hide');
+        });
 }
 
 function updatePage(data, int) {
@@ -19,24 +26,26 @@ function updatePage(data, int) {
     let restaurantSection = document.getElementById('restaurant__list');
 
     for (let i = 0; i < int; i++) {
-
+        
+        //discuss with team and decide if we should add checks for undefined, or just remove price.
+        
         const info = data.businesses[i];
         const number = info.display_phone;
         const img = info.image_url;
         const price = info.price;
-        const link = info.transactions.url;
+        const link = info.url;
         const rating = info.rating;
         const name = info.name;
         const streetAddress = info.location.display_address[0];
         const cityAddress = info.location.display_address[1];
-        const address = streetAddress +' '+ cityAddress;
+        const address = streetAddress + ' ' + cityAddress;
 
         const newSection = document.createElement('section');
         newSection.classList.add('card');
-        newSection.classList.add('restaurant')
+        newSection.classList.add('restaurant');
         newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
-        <a href="${link}">${name}</a >
+        <a data-name="${count}" href="${link}">${name}</a >
     </h3 >
         <section class="card__body">
             <section class="restaurant__info">
@@ -59,26 +68,21 @@ function updatePage(data, int) {
             </section>
                 <section class="restaurant__fav-del">
                     <button class="restaurant__btn--fav btn--trans" data-fav="${count}">
-                        <i class="fas fa-star"></i>
+                        <i data-fav="${count}" class="fas fa-star"></i>
                     </button>
                     <button class="restaurant__btn--del btn--trans" data-del="${count}">
-                        <i class="fas fa-trash"></i>
+                        <i data-del="${count}" class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
-        </section>`
+        </section>`;
 
         restaurantSection.appendChild(newSection);
         count++;
     }
 }
 
-const restaurauntBtn = document.getElementById('restaurant-btn')
-
-restaurauntBtn.addEventListener('click', () => {
-    const restSection = document.getElementById('yelp-form-module');
-    restSection.classList.remove('hide');
-})
+const yelpModal = document.getElementById('yelp-form-modal');
 
 const yelpBtn = document.getElementById('yelp-form__btn--submit');
 
@@ -93,6 +97,22 @@ yelpBtn.addEventListener('click', (e) => {
     landing.classList.add('hide');
     hero.classList.add('shrink');
     restPage.classList.remove('hide');
+    yelpModal.classList.add('hide');
 
     searchYelp(zip, 10);
+});
+
+const restaurantListener = document.getElementById('restaurant__list');
+
+restaurantListener.addEventListener('click', (e) => {
+    if (e.target.dataset.fav) {
+        let num = e.target.dataset.fav;
+        let name = document.querySelector('[data-name="'+ num + '"]');
+        
+        console.log(name.getAttribute('href'), name.text); //gets href and text brainstomr better ways to get values with THE boys or there will be a lot of variable declarations just to get favorites.
+    } else {
+        return;
+    }
+
 })
+
