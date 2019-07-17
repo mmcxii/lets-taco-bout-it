@@ -72,7 +72,7 @@ function updatePage(data, int) {
         <section class="card__body">
             <section class="restaurant__info">
                 <aside class="restaurant__photo">
-                    <img class="restaurant__photo__item" src="${img}"/>
+                    <img data-img="${count}" class="restaurant__photo__item" src="${img}"/>
                 </aside>
                 <section class="restaurant__location">
                     <section data-address="${count}" class="restaurant__address">
@@ -91,9 +91,6 @@ function updatePage(data, int) {
                 <section class="restaurant__fav-del">
                     <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
                         <i data-fav="${count}" class="fas fa-star"></i>
-                    </button>
-                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
-                        <i data-del="${count}" class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
@@ -135,13 +132,15 @@ restaurantListener.addEventListener('click', (e) => {
         const ratingEl = document.querySelector('[data-rating="'+ num + '"]');
         const priceEl = document.querySelector('[data-price="'+ num + '"]');
         const phoneEl = document.querySelector('[data-phone="'+ num + '"]');
-        
+        const imgEl = document.querySelector('[data-img="'+ num + '"]');
+
         const link = nameEl.getAttribute('href');
         const name = nameEl.text.trim();
         const address = addressEl.textContent.trim();
         const rating = ratingEl.textContent.trim();
         const price = priceEl.textContent.trim();
         const phone = phoneEl.textContent.trim();
+        const img = imgEl.getAttribute('src');
 
         let obj = {
             'link': link,
@@ -149,14 +148,12 @@ restaurantListener.addEventListener('click', (e) => {
             'address': address,
             'rating': rating,
             'price': price,
-            'phone': phone
+            'phone': phone,
+            'img': img
         }
 
         restaurantFavorites.push(obj);
         localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
-
-        console.log(restaurantFavorites);
-
 
     } else {
         return;
@@ -166,6 +163,9 @@ restaurantListener.addEventListener('click', (e) => {
 
 function updateRestFavorites() {
 
+    let count = 0;
+    const favRest = document.getElementById('favs-restaurants');
+
     for (let i=0; i < restaurantFavorites.length; i++){
         const data = restaurantFavorites[i];
         const link = data.link;
@@ -174,5 +174,43 @@ function updateRestFavorites() {
         const rating = data.rating;
         const price = data.price;
         const phone = data.phone;
+        const img = data.img;
+
+        const newSection = document.createElement('section');
+        newSection.classList.add('card');
+        newSection.classList.add('restaurant');
+        
+        newSection.innerHTML = `
+        <h3 class="card__title restaurant__title">
+        <a data-name="${count}" href="${link}" target="new">${name}</a >
+    </h3 >
+        <section class="card__body">
+            <section class="restaurant__info">
+                <aside class="restaurant__photo">
+                    <img class="restaurant__photo__item" src="${img}"/>
+                </aside>
+                <section class="restaurant__location">
+                    <section data-address="${count}" class="restaurant__address">
+                        ${address}
+                </section>
+                </section>
+                <section data-rating="${count}" class="restaurant__rating">
+                ${rating}/5
+                </section>
+                <section data-price="${count}" class="restaurant__price">
+                ${price}
+                </section>
+                <section data-phone="${count}" class="restaurant__contact">
+                    ${phone}
+            </section>
+                <section class="restaurant__fav-del">
+                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
+                        <i data-del="${count}" class="fas fa-trash"></i>
+                    </button>
+                </section>
+            </section>
+        </section>`
+        favRest.appendChild(newSection);
+        count++;
     }
 }
