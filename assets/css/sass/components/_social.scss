@@ -16,15 +16,16 @@
         line-height: $icon-size;
         border-radius: 50%;
         cursor: pointer;
-        transition: ease-in-out 300ms;
+        transition: 300ms;
         box-shadow: 3px 8px 6px -6px red;
 
         color: clr(accent);
-        background: clr(light--1);
+        background-image: clr(gradient-2--darker--hov);
+        background-size: 200%;
 
         &:hover,
         &:focus {
-            background: clr(light--0);
+            background-position: right;
         }
     }
 }
