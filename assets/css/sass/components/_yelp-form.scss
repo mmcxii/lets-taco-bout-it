@@ -33,5 +33,15 @@
         &:hover {
             color: darken(clr(accent-blue), 10);
         }
+
+        &--white {
+            color: clr(light--0);
+            font-size: fs(md);
+            transition: all ease-in-out 300ms;
+
+            &:hover {
+                color: lighten(clr(light--0), 5);
+            }
+        }
     }
 }
