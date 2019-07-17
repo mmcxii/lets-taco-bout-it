@@ -769,6 +769,17 @@ footer .container {
           justify-content: center;
 }
 
+.reccard {
+  padding-bottom: 0;
+}
+
+.reccard__title {
+  cursor: pointer;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: 0px;
+}
+
 .rec-rest__btn--fav, .rec-rest__btn--del {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   -webkit-transition: ease-in-out 300ms;

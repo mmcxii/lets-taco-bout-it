@@ -1,0 +1,10 @@
+.reccard {
+    padding-bottom: 0;
+
+    &__title {
+        cursor: pointer;
+        margin-left: -$spacing--2;
+        margin-right: -$spacing--2;
+        margin-bottom: 0px;
+    }
+}
