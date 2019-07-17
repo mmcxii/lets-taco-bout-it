@@ -21,6 +21,10 @@
                     <button class="btn sign-in__btn" id="sign-in__btn">
                         <i class="btn__icon fas fa-sign-in"></i>Sign In
                     </button>
+
+                    <button class="btn--trans sign-in__btn--fav">
+                        <i class="fas fa-star"></i>
+                    </button>
                 </section>
 
                 <button class="btn--trans" id="go-home-btn">
@@ -216,6 +220,10 @@
                             <section class="card__main">
                                 <form class="yelp-form" id="yelp-form">
                                     <div class="yelp-form__wrapper">
+                                        <button class="btn--trans yelp-form__btn--white" id="location-btn">
+                                            <i class="fas fa-location"></i>
+                                        </button>
+
                                         <input
                                             class="yelp-form__input"
                                             type="text"
@@ -259,13 +267,19 @@
 
                     <hr class="page-break" />
 
-                    <section id="restaurant__list">
-                        <div class="spinner__container">
-                            <i class="spinner fas fa-spinner fa-spin" id="rest-spinner"></i>
-                        </div>
-                    </section>
+                    <div class="spinner__container">
+                        <i class="spinner fas fa-spinner fa-spin" id="rest-spinner"></i>
+                    </div>
+                    <section id="restaurant__list"></section>
                 </section>
                 <section class="page hybrid-page hide" id="hybrid">Hybrid Page</section>
+
+                <section class="page favs-page">
+                    <article class="card intro"></article>
+
+                    <section id="favs-restaurants"></section>
+                    <section id="favs-recipes"></section>
+                </section>
             </div>
         </main>
 

@@ -64,10 +64,10 @@ function updatePage(data, int) {
                     ${number}
             </section>
                 <section class="restaurant__fav-del">
-                    <button class="restaurant__btn--fav btn--trans" data-fav="${count}">
+                    <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
                         <i class="fas fa-star"></i>
                     </button>
-                    <button class="restaurant__btn--del btn--trans" data-del="${count}">
+                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
                         <i class="fas fa-trash"></i>
                     </button>
                 </section>
