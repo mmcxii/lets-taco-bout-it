@@ -1,6 +1,8 @@
 let restaurantFavorites = [];
 
-
+if (localStorage.getItem('rest') !== null) {
+    restaurantFavorites = JSON.parse(localStorage.getItem('rest'));
+}
 
 function searchYelp(zip, num) {
     const yelpApiKey =
@@ -141,6 +143,8 @@ restaurantListener.addEventListener('click', (e) => {
         restaurantFavorites.push(obj);
         localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
 
+        console.log(restaurantFavorites);
+
 
     } else {
         return;
@@ -148,3 +152,15 @@ restaurantListener.addEventListener('click', (e) => {
 
 })
 
+function updateRestFavorites() {
+
+    for (let i=0; i < restaurantFavorites.length; i++){
+        const data = restaurantFavorites[i];
+        const link = data.link;
+        const name = data.name;
+        const address = data.address;
+        const rating = data.rating;
+        const price = data.price;
+        const phone = data.phone;
+    }
+}
