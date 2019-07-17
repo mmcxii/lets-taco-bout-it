@@ -625,28 +625,6 @@ footer .container {
   border-radius: 5px;
 }
 
-.restaurant__btn--fav, .restaurant__btn--del {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  -webkit-transition: ease-in-out 300ms;
-  transition: ease-in-out 300ms;
-}
-
-.restaurant__btn--fav {
-  color: #c69200;
-}
-
-.restaurant__btn--fav:hover {
-  color: #ad7f00;
-}
-
-.restaurant__btn--del {
-  color: #555;
-}
-
-.restaurant__btn--del:hover {
-  color: #484848;
-}
-
 .restaurant__photo, .restaurant__address, .restaurant__rating, .restaurant__price, .restaurant__contact, .restaurant__fav-del {
   margin-bottom: 1rem;
 }
@@ -746,6 +724,17 @@ footer .container {
   color: #348fac;
 }
 
+.yelp-form__btn--white {
+  color: #eee;
+  font-size: 1.25rem;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+
+.yelp-form__btn--white:hover {
+  color: #fbfbfb;
+}
+
 .intro {
   font-size: 1.08rem;
   padding: 2rem;
@@ -778,4 +767,26 @@ footer .container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.rec-rest__btn--fav, .rec-rest__btn--del {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+}
+
+.rec-rest__btn--fav {
+  color: #c69200;
+}
+
+.rec-rest__btn--fav:hover {
+  color: #ad7f00;
+}
+
+.rec-rest__btn--del {
+  color: #555;
+}
+
+.rec-rest__btn--del:hover {
+  color: #484848;
 }

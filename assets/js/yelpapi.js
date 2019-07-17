@@ -90,7 +90,10 @@ function updatePage(data, int) {
             </section>
                 <section class="restaurant__fav-del">
                     <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
-                        <i data-fav="${count}" class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
+                        <i class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
