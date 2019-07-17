@@ -4,11 +4,23 @@ if (localStorage.getItem('rest') !== null) {
     restaurantFavorites = JSON.parse(localStorage.getItem('rest'));
 }
 
-function searchYelp(zip, num) {
+function searchYelp(zip, num, lat, long) {
+
+
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
-    fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&location=${zip}`,
+
+        let queryURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&limit=11`;
+
+        if (zip !== '') {
+           queryURL += `&location=${zip}`;
+        }
+
+        if (lat && long) {
+            queryURL += `&latitude=${lat}&longitude=${long}`
+        } 
+
+    fetch(queryURL,
         {
             method: 'GET',
             headers: {
@@ -109,7 +121,8 @@ yelpBtn.addEventListener('click', (e) => {
     restPage.classList.remove('hide');
     yelpModal.classList.add('hide');
 
-    searchYelp(zip, 10);
+    // searchYelp(zip, 10);
+    searchYelp('', 10, '47.6324463', '-122.1545743');
 });
 
 const restaurantListener = document.getElementById('restaurant__list');
