@@ -3,7 +3,7 @@ let fail = 0;
 let end = 0;
 
 function fetchNow(){
-    fetch('http://taco-randomizer.herokuapp.com/random/?full-taco=true')
+    fetch('https://taco-randomizer.herokuapp.com/random/?full-taco=true')
     .then(function (response) {
         return response.json();
     })
