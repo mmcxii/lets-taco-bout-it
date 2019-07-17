@@ -17,13 +17,13 @@
     <body>
         <header>
             <div class="container">
-                <section class="sign-in">
-                    <button class="btn sign-in__btn" id="sign-in__btn">
+                <section class="user-info">
+                    <button class="btn" id="sign-in-btn">
                         <i class="btn__icon fas fa-sign-in"></i>Sign In
                     </button>
 
-                    <button class="btn--trans sign-in__btn--fav">
-                        <i class="fas fa-star"></i>
+                    <button class="btn" id="user-favs-btn">
+                        <i class="btn__icon fas fa-star"></i>Favorites
                     </button>
                 </section>
 
@@ -270,7 +270,7 @@
                     <div class="spinner__container">
                         <i class="spinner fas fa-spinner fa-spin" id="rest-spinner"></i>
                     </div>
-                    <section id="restaurant__list"></section>
+                    <section class="restaurant__list" id="restaurant__list"></section>
                 </section>
                 <section class="page hybrid-page hide" id="hybrid">Hybrid Page</section>
 
@@ -302,7 +302,6 @@
         <script src="assets/js/Modal.js"></script>
         <script src="assets/js/GetTime.js"></script>
         <script src="assets/js/ToggleNav.js"></script>
-
 
         <!-- Back End JS -->
         <script src="assets/js/geolocation.js"></script>
