@@ -10,15 +10,15 @@ function searchYelp(zip, num, lat, long) {
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
 
-        let queryURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&limit=11`;
+    let queryURL = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=taco&limit=11`;
 
-        if (zip !== '') {
-           queryURL += `&location=${zip}`;
-        }
+    if (zip !== '') {
+        queryURL += `&location=${zip}`;
+    }
 
-        if (lat && long) {
-            queryURL += `&latitude=${lat}&longitude=${long}`
-        } 
+    if (lat && long) {
+        queryURL += `&latitude=${lat}&longitude=${long}`
+    }
 
     fetch(queryURL,
         {
@@ -44,9 +44,9 @@ function updatePage(data, int) {
     restaurantSection.innerHTML = '';
 
     for (let i = 0; i < int; i++) {
-        
+
         //discuss with team and decide if we should add checks for undefined, or just remove price.
-        
+
         const info = data.businesses[i];
         const number = info.display_phone;
         const img = info.image_url;
@@ -90,7 +90,7 @@ function updatePage(data, int) {
             </section>
                 <section class="restaurant__fav-del">
                     <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
-                        <i class="fas fa-star"></i>
+                        <i data-fav="${count}" class="fas fa-star"></i>
                     </button>
                     <button class="rec-rest__btn--del btn--trans" data-del="${count}">
                         <i class="fas fa-trash"></i>
@@ -127,15 +127,17 @@ yelpBtn.addEventListener('click', (e) => {
 const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
+
+
     if (e.target.dataset.fav) {
-        
+        console.log('clicked');
         const num = e.target.dataset.fav;
-        const nameEl = document.querySelector('[data-name="'+ num + '"]');
-        const addressEl = document.querySelector('[data-address="'+ num + '"]');
-        const ratingEl = document.querySelector('[data-rating="'+ num + '"]');
-        const priceEl = document.querySelector('[data-price="'+ num + '"]');
-        const phoneEl = document.querySelector('[data-phone="'+ num + '"]');
-        const imgEl = document.querySelector('[data-img="'+ num + '"]');
+        const nameEl = document.querySelector('[data-name="' + num + '"]');
+        const addressEl = document.querySelector('[data-address="' + num + '"]');
+        const ratingEl = document.querySelector('[data-rating="' + num + '"]');
+        const priceEl = document.querySelector('[data-price="' + num + '"]');
+        const phoneEl = document.querySelector('[data-phone="' + num + '"]');
+        const imgEl = document.querySelector('[data-img="' + num + '"]');
 
         const link = nameEl.getAttribute('href');
         const name = nameEl.text.trim();
@@ -155,9 +157,37 @@ restaurantListener.addEventListener('click', (e) => {
             'img': img
         }
 
-        restaurantFavorites.push(obj);
-        localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
+        if (restaurantFavorites.length >= 0) {
 
+            for (let i = 0; i < restaurantFavorites.length; i++) {
+
+                if (restaurantFavorites[i]['name'] === name) {
+
+                    return;
+                }
+            }
+
+
+            restaurantFavorites.push(obj);
+            localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
+        }
+
+
+
+    } else {
+        return;
+    }
+
+})
+
+const favRest = document.getElementById('favs-restaurants');
+
+favRest.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.dataset.del) {
+        let num = e.target.dataset.del;
+        restaurantFavorites.splice(num, 1);
+        localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
     } else {
         return;
     }
@@ -166,23 +196,28 @@ restaurantListener.addEventListener('click', (e) => {
 
 function updateRestFavorites() {
 
-    const favRest = document.getElementById('favs-restaurants');
+    if (restaurantFavorites.length < 1) {
+        return;
+    } else {
+        const favsPage = document.querySelector('.favs-page');
 
-    for (let i=0; i < restaurantFavorites.length; i++){
-        const data = restaurantFavorites[i];
-        const link = data.link;
-        const name = data.name;
-        const address = data.address;
-        const rating = data.rating;
-        const price = data.price;
-        const phone = data.phone;
-        const img = data.img;
+        favsPage.classList.remove('hide');
 
-        const newSection = document.createElement('section');
-        newSection.classList.add('card');
-        newSection.classList.add('restaurant');
-        
-        newSection.innerHTML = `
+        for (let i = 0; i < restaurantFavorites.length; i++) {
+            const data = restaurantFavorites[i];
+            const link = data.link;
+            const name = data.name;
+            const address = data.address;
+            const rating = data.rating;
+            const price = data.price;
+            const phone = data.phone;
+            const img = data.img;
+
+            const newSection = document.createElement('section');
+            newSection.classList.add('card');
+            newSection.classList.add('restaurant');
+
+            newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
         <a data-name="${i}" href="${link}" target="new">${name}</a >
     </h3 >
@@ -212,7 +247,8 @@ function updateRestFavorites() {
                 </section>
             </section>
         </section>`
-        favRest.appendChild(newSection);
+            favRest.appendChild(newSection);
+        }
     }
 }
 
@@ -230,7 +266,24 @@ locationBtn.addEventListener('click', (e) => {
     restPage.classList.remove('hide');
     yelpModal.classList.add('hide');
 
-    console.log(lat);
-    console.log(long);
     searchYelp('', 10, lat, long);
 })
+
+const signInFavListener = document.querySelector('.user-info')
+
+signInFavListener.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    const landing = document.getElementById('home');
+    const hero = document.getElementById('hero');
+
+    landing.classList.add('hide');
+    hero.classList.add('shrink');
+
+    if (e.target.dataset.btn === 'favorites') {
+        updateRestFavorites();
+    } else {
+        return;
+    }
+})
+
