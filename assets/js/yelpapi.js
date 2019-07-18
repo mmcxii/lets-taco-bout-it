@@ -38,7 +38,6 @@ function searchYelp(zip, num, lat, long) {
 }
 
 function updatePage(data, int) {
-    let count = 0;
     let restaurantSection = document.getElementById('restaurant__list');
 
     restaurantSection.innerHTML = '';
@@ -65,42 +64,42 @@ function updatePage(data, int) {
         const newSection = document.createElement('section');
         newSection.classList.add('card');
         newSection.classList.add('restaurant');
+        newSection.setAttribute('data-parent', i);
         newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
-        <a data-name="${count}" href="${link}" target="new">${name}</a >
+        <a data-name="${i}" href="${link}" target="new">${name}</a >
     </h3 >
         <section class="card__body">
             <section class="restaurant__info">
                 <aside class="restaurant__photo">
-                    <img data-img="${count}" class="restaurant__photo__item" src="${img}"/>
+                    <img data-img="${i}" class="restaurant__photo__item" src="${img}"/>
                 </aside>
                 <section class="restaurant__location">
-                    <section data-address="${count}" class="restaurant__address">
+                    <section data-address="${i}" class="restaurant__address">
                         ${address}
                 </section>
                 </section>
-                <section data-rating="${count}" class="restaurant__rating">
+                <section data-rating="${i}" class="restaurant__rating">
                 ${rating}/5
                 </section>
-                <section data-price="${count}" class="restaurant__price">
+                <section data-price="${i}" class="restaurant__price">
                 ${price}
                 </section>
-                <section data-phone="${count}" class="restaurant__contact">
+                <section data-phone="${i}" class="restaurant__contact">
                     ${number}
             </section>
                 <section class="restaurant__fav-del">
-                    <button class="rec-rest__btn--fav btn--trans" data-fav="${count}">
-                        <i data-fav="${count}" class="fas fa-star"></i>
+                    <button class="rec-rest__btn--fav btn--trans" data-fav="${i}">
+                        <i data-fav="${i}" class="fas fa-star"></i>
                     </button>
-                    <button class="rec-rest__btn--del btn--trans" data-del="${count}">
-                        <i class="fas fa-trash"></i>
+                    <button class="rec-rest__btn--del btn--trans" data-del="${i}">
+                        <i data-del="${i}" class="fas fa-trash"></i>
                     </button>
                 </section>
             </section>
         </section>`;
 
         restaurantSection.appendChild(newSection);
-        count++;
     }
 }
 
@@ -128,9 +127,9 @@ const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
 
+    console.log('clicked');
 
     if (e.target.dataset.fav) {
-        console.log('clicked');
         const num = e.target.dataset.fav;
         const nameEl = document.querySelector('[data-name="' + num + '"]');
         const addressEl = document.querySelector('[data-address="' + num + '"]');
@@ -166,18 +165,19 @@ restaurantListener.addEventListener('click', (e) => {
                     return;
                 }
             }
-
-
             restaurantFavorites.push(obj);
             localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
         }
+    } 
 
+    if (e.target.dataset.del) {
+        let delNum = e.target.dataset.del;
 
+        let parent = document.querySelector('[data-parent="' + delNum + '"]');
 
-    } else {
-        return;
+        parent.classList.add('hide');
+
     }
-
 })
 
 const favRest = document.getElementById('favs-restaurants');
@@ -186,8 +186,12 @@ favRest.addEventListener('click', (e) => {
     e.preventDefault();
     if (e.target.dataset.del) {
         let num = e.target.dataset.del;
+        let parent = document.querySelector('[data-parent="' + num + '"]');
         restaurantFavorites.splice(num, 1);
         localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
+        updateupdateRestFavorites();
+
+        parent.classList.add('hide');
     } else {
         return;
     }
@@ -195,6 +199,7 @@ favRest.addEventListener('click', (e) => {
 })
 
 function updateRestFavorites() {
+    favRest.innerHTML = '';
 
     if (restaurantFavorites.length < 1) {
         return;
@@ -216,6 +221,7 @@ function updateRestFavorites() {
             const newSection = document.createElement('section');
             newSection.classList.add('card');
             newSection.classList.add('restaurant');
+            newSection.setAttribute('data-parent', i);
 
             newSection.innerHTML = `
         <h3 class="card__title restaurant__title">
@@ -232,7 +238,7 @@ function updateRestFavorites() {
                 </section>
                 </section>
                 <section data-rating="${i}" class="restaurant__rating">
-                ${rating}/5
+                ${rating}
                 </section>
                 <section data-price="${i}" class="restaurant__price">
                 ${price}
@@ -251,6 +257,19 @@ function updateRestFavorites() {
         }
     }
 }
+
+favRest.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (e.target.dataset.del) {
+        let num = e.target.dataset.del;
+        restaurantFavorites.splice(num, 1);
+        localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
+        updateRestFavorites();
+    } else {
+        return;
+    }
+
+})
 
 const locationBtn = document.getElementById('location-btn');
 
@@ -273,7 +292,7 @@ const signInFavListener = document.querySelector('.user-info')
 
 signInFavListener.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const landing = document.getElementById('home');
     const hero = document.getElementById('hero');
 
