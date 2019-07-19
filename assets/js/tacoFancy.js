@@ -9,6 +9,7 @@ const favsRec = document.getElementById('favs-recipes');
 const favsPageBtn = document.getElementById('user-favs-btn');
 const restPage = document.getElementById('rest');
 const recPage = document.getElementById('rec');
+const coll = document.getElementById('reccontent');
 //checks local storage for existing items
 if (localStorage.getItem('rec') !== null) {
     recipeFavorites = JSON.parse(localStorage.getItem('rec'));
@@ -115,6 +116,8 @@ function fetchNow() {
 document.getElementById('recipe-btn').addEventListener('click', function() {
     fail = 0;
     end = 10;
+    used = [];
+    coll.innerHTML = '';
     const recipePage = document.getElementById('rec');
     const landingPage = document.getElementById('home');
     landingPage.classList.add('hide');
@@ -123,7 +126,7 @@ document.getElementById('recipe-btn').addEventListener('click', function() {
 });
 
 //Expandable recipe on click event
-var coll = document.getElementById('reccontent');
+
 coll.addEventListener('click', function(event) {
     //gets the event for correct recipe title
     if (!event.target.matches('.card__title')) {
@@ -141,12 +144,8 @@ coll.addEventListener('click', function(event) {
 //localStorage.clear();
 
 //favorite button on click event
-<<<<<<< HEAD
-coll.addEventListener('click', function(e) {
-=======
 coll.addEventListener('click', function (e) {
     e.preventDefault();
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
     if (!event.target.matches('.fa-star')) {
         return;
     } else {
@@ -156,15 +155,6 @@ coll.addEventListener('click', function (e) {
         recipeFavorites.push(title);
         localStorage.setItem('rec', JSON.stringify(recipeFavorites));
     }
-<<<<<<< HEAD
-});
-
-//button for favorites page. should merge with yelp js.
-favsPageBtn.addEventListener('click', function() {
-    if (recipeFavorites.length < 1) {
-        return;
-    } else {
-=======
 })
 //remove button on click event
 coll.addEventListener('click', function(e){
@@ -186,29 +176,10 @@ function UpdateRecFavs(){
     if(recipeFavorites.length < 1){ 
         return;
       }else{
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
         favsRec.innerHTML = '';
         favsPage[0].classList.remove('hide');
         restPage.classList.add('hide');
         recipePage.classList.add('hide');
-<<<<<<< HEAD
-
-        let title;
-
-        storage = JSON.parse(window.localStorage.getItem('rec'));
-
-        for (let i = 0; i < storage.length; i++) {
-            title = storage[i];
-            let test = document.createElement('div');
-            test.innerHTML = title;
-
-            favsRec.append(test);
-        }
-    }
-});
-//hide and show for main recipe content
-favsRec.addEventListener('click', function(event) {
-=======
     
 
     
@@ -232,7 +203,6 @@ favsRec.addEventListener("click", function (event) {
     event.preventDefault();
 
     //recipe hide
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
     if (!event.target.matches('.card__title')) {
         return;
     } else {
@@ -244,8 +214,6 @@ favsRec.addEventListener("click", function (event) {
         }
     }
 });
-<<<<<<< HEAD
-=======
 
 favsRec.addEventListener("click", function (event) {
     //trash can
@@ -260,4 +228,3 @@ favsRec.addEventListener("click", function (event) {
         parent.classList.add('hide');
     }
 })
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
