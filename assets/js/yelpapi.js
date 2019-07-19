@@ -5,8 +5,6 @@ if (localStorage.getItem('rest') !== null) {
 }
 
 function searchYelp(zip, num, lat, long) {
-
-
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
 
@@ -17,23 +15,21 @@ function searchYelp(zip, num, lat, long) {
     }
 
     if (lat && long) {
-        queryURL += `&latitude=${lat}&longitude=${long}`
+        queryURL += `&latitude=${lat}&longitude=${long}`;
     }
 
-    fetch(queryURL,
-        {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${yelpApiKey}`,
-                'Access-Control-Allow-Origin': '*',
-            },
-        }
-    )
+    fetch(queryURL, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${yelpApiKey}`,
+            'Access-Control-Allow-Origin': '*',
+        },
+    })
         .then((data) => data.json())
         .then((data) => {
             updatePage(data, num);
-            const spinner = document.querySelector('.spinner');
-            spinner.classList.add('hide');
+
+            spinners.forEach((spinner) => spinner.classList.add('hide'));
         });
 }
 
@@ -43,7 +39,6 @@ function updatePage(data, int) {
     restaurantSection.innerHTML = '';
 
     for (let i = 0; i < int; i++) {
-
         //discuss with team and decide if we should add checks for undefined, or just remove price.
 
         const info = data.businesses[i];
@@ -107,20 +102,24 @@ const yelpModal = document.getElementById('yelp-form-modal');
 
 const yelpBtn = document.getElementById('yelp-form__btn--submit');
 
-
-
 yelpBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const zipInput = document.getElementById('yelp-form__field');
-    const landing = document.getElementById('home');
-    const hero = document.getElementById('hero');
     const zip = zipInput.value;
-    const restPage = document.getElementById('rest');
 
-    landing.classList.add('hide');
-    hero.classList.add('shrink');
-    restPage.classList.remove('hide');
+    // Hide Pages
+    landPage.classList.add('hide');
+    recPage.classList.add('hide');
+    favPage.classList.add('hide');
+
+    // Hide Modal
     yelpModal.classList.add('hide');
+
+    // Display Restaurant Page
+    restPage.classList.remove('hide');
+
+    // Shrink Hero
+    hero.classList.add('shrink');
 
     if (!hybrid) {
         searchYelp(zip, 10, lat, long);
@@ -129,20 +128,18 @@ yelpBtn.addEventListener('click', (e) => {
         recDisplay.innerHTML = '';
         used = [];
         end = 5;
-        
+
         restPage.classList.remove('hide');
-        recipePage.classList.remove('hide');
+        recPage.classList.remove('hide');
         hybrid = false;
         fetchNow();
         searchYelp(zip, 5, lat, long);
     }
-
 });
 
 const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
-
     if (e.target.dataset.fav) {
         const num = e.target.dataset.fav;
         const nameEl = document.querySelector('[data-name="' + num + '"]');
@@ -161,28 +158,25 @@ restaurantListener.addEventListener('click', (e) => {
         const img = imgEl.getAttribute('src');
 
         let obj = {
-            'link': link,
-            'name': name,
-            'address': address,
-            'rating': rating,
-            'price': price,
-            'phone': phone,
-            'img': img
-        }
+            link: link,
+            name: name,
+            address: address,
+            rating: rating,
+            price: price,
+            phone: phone,
+            img: img,
+        };
 
         if (restaurantFavorites.length >= 0) {
-
             for (let i = 0; i < restaurantFavorites.length; i++) {
-
                 if (restaurantFavorites[i]['name'] === name) {
-
                     return;
                 }
             }
             restaurantFavorites.push(obj);
             localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
         }
-    } 
+    }
 
     if (e.target.dataset.del) {
         let delNum = e.target.dataset.del;
@@ -190,9 +184,8 @@ restaurantListener.addEventListener('click', (e) => {
         let parent = document.querySelector('[data-parent="' + delNum + '"]');
 
         parent.classList.add('hide');
-
     }
-})
+});
 
 const favRest = document.getElementById('favs-restaurants');
 
@@ -202,8 +195,6 @@ function updateRestFavorites() {
     if (restaurantFavorites.length < 1) {
         return;
     } else {
-
-
         favsPage.classList.remove('hide');
 
         for (let i = 0; i < restaurantFavorites.length; i++) {
@@ -250,7 +241,7 @@ function updateRestFavorites() {
                     </button>
                 </section>
             </section>
-        </section>`
+        </section>`;
             favRest.appendChild(newSection);
         }
     }
@@ -266,21 +257,26 @@ favRest.addEventListener('click', (e) => {
     } else {
         return;
     }
-
-})
+});
 
 const locationBtn = document.getElementById('location-btn');
 
 locationBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const landing = document.getElementById('home');
-    const hero = document.getElementById('hero');
-    const restPage = document.getElementById('rest');
+    // Hide Pages
+    landPage.classList.add('hide');
+    recPage.classList.add('hide');
+    favPage.classList.add('hide');
 
-    landing.classList.add('hide');
-    hero.classList.add('shrink');
+    // Hide Modal
     yelpModal.classList.add('hide');
+
+    // Display Restaurant Page
+    restPage.classList.remove('hide');
+
+    // Shrink Hero
+    hero.classList.add('shrink');
 
     if (!hybrid) {
         searchYelp('', 10, lat, long);
@@ -290,24 +286,35 @@ locationBtn.addEventListener('click', (e) => {
         recDisplay.innerHTML = '';
         used = [];
         end = 5;
-        
+
         restPage.classList.remove('hide');
-        recipePage.classList.remove('hide');
+        recPage.classList.remove('hide');
         hybrid = false;
         fetchNow();
         searchYelp('', 5, lat, long);
     }
-})
+});
 
-const signInFavListener = document.querySelector('.user-info')
+const favListener = document.querySelector('.user-info');
 
-signInFavListener.addEventListener('click', (e) => {
+favListener.addEventListener('click', (e) => {
     e.preventDefault();
 
     const landing = document.getElementById('home');
     const hero = document.getElementById('hero');
 
-    landing.classList.add('hide');
+    // Hide Pages
+    landPage.classList.add('hide');
+    recPage.classList.add('hide');
+    restPage.classList.add('hide');
+
+    // Hide Modal
+    yelpModal.classList.add('hide');
+
+    // Display Favorites Page
+    favPage.classList.remove('hide');
+
+    // Shrink Hero
     hero.classList.add('shrink');
 
     if (e.target.dataset.btn === 'favorites') {
@@ -315,4 +322,4 @@ signInFavListener.addEventListener('click', (e) => {
     } else {
         return;
     }
-})
+});
