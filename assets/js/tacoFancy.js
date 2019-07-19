@@ -22,14 +22,14 @@ function fetchNow() {
             return response.json();
         })
         .then(function(myJson) {
-            const spinner = document.querySelector('#recipe-spinner');
-            spinner.classList.add('hide');
+            
 
             if (fail > 30) {
                 return;
             }
             if (used.length < end) {
                 let isNew = true;
+                coll.classList.add('hide');
 
                 for (let j = 0; j < used.length; j++) {
                     if (used[j] === myJson.name) {
@@ -108,6 +108,9 @@ function fetchNow() {
                 }
                 fetchNow();
             } else {
+                coll.classList.remove('hide');
+                const spinner = document.querySelector('#recipe-spinner');
+                    spinner.classList.add('hide');
                 return;
             }
         });
