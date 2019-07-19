@@ -7,8 +7,4 @@
     @include mq(bp(lg)) {
         margin-left: auto;
     }
-
-    .btn:first-child {
-        margin-bottom: $spacing--1;
-    }
 }

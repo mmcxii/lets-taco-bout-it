@@ -13,20 +13,20 @@ if (localStorage.getItem('rec') !== null) {
     recipeFavorites = JSON.parse(localStorage.getItem('rec'));
 }
 
-
 //fetch function for API
 function fetchNow() {
     fetch('https://taco-randomizer.herokuapp.com/random/?full-taco=true')
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (myJson) {
+        .then(function(myJson) {
+            const spinner = document.querySelector('#recipe-spinner');
+            spinner.classList.add('hide');
+
             if (fail > 30) {
                 return;
             }
             if (used.length < end) {
-
-
                 let isNew = true;
 
                 for (let j = 0; j < used.length; j++) {
@@ -40,8 +40,8 @@ function fetchNow() {
                     //<button class="rec-rest__btn--fav btn--trans" data-fav="${i}">
                     //<i data-fav="${i}" class="fas fa-star"></i>
                     //</button>
-                    let button = document.createElement("h3");
-                    let recipe = document.createElement("p");
+                    let button = document.createElement('h3');
+                    let recipe = document.createElement('p');
                     let cardIntro = document.createElement('section');
                     let cardBody = document.createElement('section');
                     let cardMain = document.createElement('section');
@@ -72,16 +72,21 @@ function fetchNow() {
                     //favorite button
                     favBtn.classList.add('rec-rest__btn--fav');
                     favBtn.classList.add('btn--trans');
-                    favBtn.innerHTML = '<i data-fav="${i}" class="fas fa-star"></i>'
+                    favBtn.innerHTML = '<i data-fav="${i}" class="fas fa-star"></i>';
                     //write name to button
                     button.innerHTML = myJson.name;
-                    button.classList.add("reccard__title");
-                    button.classList.add("card__title");
+                    button.classList.add('reccard__title');
+                    button.classList.add('card__title');
 
-                    recipe.innerHTML = converter.makeHtml(myJson.base_layer.recipe) + converter.makeHtml(shell) + converter.makeHtml(seasoning) + converter.makeHtml(condiment) + converter.makeHtml(mixin);
+                    recipe.innerHTML =
+                        converter.makeHtml(myJson.base_layer.recipe) +
+                        converter.makeHtml(shell) +
+                        converter.makeHtml(seasoning) +
+                        converter.makeHtml(condiment) +
+                        converter.makeHtml(mixin);
 
                     //append everything
-                    let content = document.getElementById("reccontent");
+                    let content = document.getElementById('reccontent');
 
                     cardMain.append(recipe);
                     button.append(favBtn);
@@ -97,12 +102,10 @@ function fetchNow() {
             } else {
                 return;
             }
-        })
-
-
+        });
 }
 //starts the fetch loops. Resets fails to 0 and adds to ending point of function
-document.getElementById("recipe-btn").addEventListener('click', function () {
+document.getElementById('recipe-btn').addEventListener('click', function() {
     fail = 0;
     end = 10;
     const recipePage = document.getElementById('rec');
@@ -110,15 +113,12 @@ document.getElementById("recipe-btn").addEventListener('click', function () {
     landingPage.classList.add('hide');
     recipePage.classList.remove('hide');
     fetchNow();
-
-})
-
+});
 
 //Expandable recipe on click event
 var coll = document.getElementById('reccontent');
-coll.addEventListener("click", function (event) {
-
-//gets the event for correct recipe title
+coll.addEventListener('click', function(event) {
+    //gets the event for correct recipe title
     if (!event.target.matches('.card__title')) {
         return;
     } else {
@@ -133,54 +133,44 @@ coll.addEventListener("click", function (event) {
 //clear localStorage for testing or ease of use
 //localStorage.clear();
 
-
 //favorite button on click event
-coll.addEventListener('click', function (e) {
+coll.addEventListener('click', function(e) {
     if (!event.target.matches('.fa-star')) {
         return;
     } else {
-
         let recipeContent = e.target.parentElement.parentElement.parentElement.parentElement;
         let title = recipeContent.outerHTML;
 
         recipeFavorites.push(title);
         localStorage.setItem('rec', JSON.stringify(recipeFavorites));
-
-
-
     }
-})
+});
 
 //button for favorites page. should merge with yelp js.
-favsPageBtn.addEventListener('click', function () {
-  if(recipeFavorites.length < 1){ 
-    return;
-  }else{
-    favsRec.innerHTML = '';
-    favsPage[0].classList.remove('hide');
-    restPage.classList.add('hide');
-    recipePage.classList.add('hide');
+favsPageBtn.addEventListener('click', function() {
+    if (recipeFavorites.length < 1) {
+        return;
+    } else {
+        favsRec.innerHTML = '';
+        favsPage[0].classList.remove('hide');
+        restPage.classList.add('hide');
+        recipePage.classList.add('hide');
 
-    let title;
+        let title;
 
+        storage = JSON.parse(window.localStorage.getItem('rec'));
 
-    storage = JSON.parse(window.localStorage.getItem('rec'));
+        for (let i = 0; i < storage.length; i++) {
+            title = storage[i];
+            let test = document.createElement('div');
+            test.innerHTML = title;
 
-    for (let i = 0; i < storage.length; i++) {
-
-        title = storage[i]
-        let test = document.createElement('div');
-        test.innerHTML = title;
-
-        favsRec.append(test)
-
+            favsRec.append(test);
+        }
     }
-    }   
-})
+});
 //hide and show for main recipe content
-favsRec.addEventListener("click", function (event) {
-
-
+favsRec.addEventListener('click', function(event) {
     if (!event.target.matches('.card__title')) {
         return;
     } else {
