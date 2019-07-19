@@ -104,7 +104,7 @@ function fetchNow() {
 //starts the fetch loops. Resets fails to 0 and adds to ending point of function
 document.getElementById("recipe-btn").addEventListener('click', function () {
     fail = 0;
-    end += 10;
+    end = 10;
     const recipePage = document.getElementById('rec');
     const landingPage = document.getElementById('home');
     landingPage.classList.add('hide');
@@ -153,6 +153,10 @@ coll.addEventListener('click', function (e) {
 
 //button for favorites page. should merge with yelp js.
 favsPageBtn.addEventListener('click', function () {
+  if(restaurantFavorites.length < 1){ 
+    return;
+  }else{
+    favsRec.innerHTML = '';
     favsPage[0].classList.remove('hide');
     restPage.classList.add('hide');
     recipePage.classList.add('hide');
@@ -171,6 +175,7 @@ favsPageBtn.addEventListener('click', function () {
         favsRec.append(test)
 
     }
+    }   
 })
 //hide and show for main recipe content
 favsRec.addEventListener("click", function (event) {
