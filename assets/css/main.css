@@ -399,10 +399,6 @@ footer .container {
   }
 }
 
-.user-info .btn:first-child {
-  margin-bottom: 0.5rem;
-}
-
 .title--main {
   margin-left: 0.5rem;
   color: #fff;
@@ -573,7 +569,7 @@ footer .container {
   margin: 1rem;
 }
 
-.restaurant__list {
+.restaurant__list, #favs-restaurants {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[1];
@@ -582,21 +578,21 @@ footer .container {
 }
 
 @media screen and (min-width: 768px) {
-  .restaurant__list {
+  .restaurant__list, #favs-restaurants {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (min-width: 992px) {
-  .restaurant__list {
+  .restaurant__list, #favs-restaurants {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .restaurant__list {
+  .restaurant__list, #favs-restaurants {
     -ms-grid-columns: (1fr)[auto-fill];
         grid-template-columns: repeat(auto-fill, 1fr);
   }
