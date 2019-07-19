@@ -182,22 +182,6 @@ restaurantListener.addEventListener('click', (e) => {
 
 const favRest = document.getElementById('favs-restaurants');
 
-favRest.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (e.target.dataset.del) {
-        let num = e.target.dataset.del;
-        let parent = document.querySelector('[data-parent="' + num + '"]');
-        restaurantFavorites.splice(num, 1);
-        localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
-        updateupdateRestFavorites();
-
-        parent.classList.add('hide');
-    } else {
-        return;
-    }
-
-})
-
 function updateRestFavorites() {
     favRest.innerHTML = '';
 
