@@ -1,7 +1,7 @@
 let used = [];
 let fail = 0;
 let end = 0;
-let recipefavorites;
+let recipeFavorites = [];
 let storage;
 const favsPage = document.getElementsByClassName('favs-page');
 const favsRec = document.getElementById('favs-recipes');
@@ -10,7 +10,7 @@ const restPage = document.getElementById('rest');
 const recPage = document.getElementById('rec');
 //checks local storage for existing items
 if (localStorage.getItem('rec') !== null) {
-    restaurantFavorites = JSON.parse(localStorage.getItem('rec'));
+    recipeFavorites = JSON.parse(localStorage.getItem('rec'));
 }
 
 
@@ -139,12 +139,12 @@ coll.addEventListener('click', function (e) {
     if (!event.target.matches('.fa-star')) {
         return;
     } else {
-        console.log('clicked');
+
         let recipeContent = e.target.parentElement.parentElement.parentElement.parentElement;
         let title = recipeContent.outerHTML;
 
-        restaurantFavorites.push(title);
-        localStorage.setItem('rec', JSON.stringify(restaurantFavorites));
+        recipeFavorites.push(title);
+        localStorage.setItem('rec', JSON.stringify(recipeFavorites));
 
 
 
@@ -153,7 +153,7 @@ coll.addEventListener('click', function (e) {
 
 //button for favorites page. should merge with yelp js.
 favsPageBtn.addEventListener('click', function () {
-  if(restaurantFavorites.length < 1){ 
+  if(recipeFavorites.length < 1){ 
     return;
   }else{
     favsRec.innerHTML = '';
