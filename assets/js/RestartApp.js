@@ -1,20 +1,30 @@
+// Pages
+const landPage = document.querySelector('#home');
+const restPage = document.querySelector('#rest');
+const recPage = document.querySelector('#rec');
+const favPage = document.querySelector('#fav');
+
+// Components
 const goHomeBtn = document.querySelector('#go-home-btn');
 const hero = document.querySelector('#hero');
-const landingPage = document.querySelector('#home');
-const recipePage = document.querySelector('#rec');
-const restaurantPage = document.querySelector('#rest');
-const hybridPage = document.querySelector('#hybrid');
 const spinners = document.querySelectorAll('.spinner');
 
 goHomeBtn.addEventListener('click', resetApp);
 
 function resetApp() {
+    // Display Home Page
+    landPage.classList.remove('hide');
+
+    // Hide Secondary Pages
+    recPage.classList.add('hide');
+    restPage.classList.add('hide');
+    favPage.classList.add('hide');
+
+    // Reset Hero size and prepare spinners to be shown
     hero.classList.remove('shrink');
-
-    landingPage.classList.remove('hide');
-    recipePage.classList.add('hide');
-    restaurantPage.classList.add('hide');
-    hybridPage.classList.add('hide');
-
     spinners.forEach((spinner) => spinner.classList.remove('hide'));
+
+    let restaurantSection = document.getElementById('restaurant__list');
+
+    restaurantSection.innerHTML = '';
 }
