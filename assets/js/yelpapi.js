@@ -115,14 +115,25 @@ yelpBtn.addEventListener('click', (e) => {
     restPage.classList.remove('hide');
     yelpModal.classList.add('hide');
 
-    searchYelp(zip, 10);
+    if (!hybrid) {
+        searchYelp(zip, 10, lat, long);
+    } else {
+        const recDisplay = document.getElementById('reccontent');
+        recDisplay.innerHTML = '';
+        used = [];
+        end = 5;
+
+        restPage.classList.remove('hide');
+        recipePage.classList.remove('hide');
+        hybrid = false;
+        fetchNow();
+        searchYelp(zip, 5, lat, long);
+    }
 });
 
 const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
-    console.log('clicked');
-
     if (e.target.dataset.fav) {
         const num = e.target.dataset.fav;
         const nameEl = document.querySelector('[data-name="' + num + '"]');
@@ -174,12 +185,10 @@ const favRest = document.getElementById('favs-restaurants');
 
 function updateRestFavorites() {
     favRest.innerHTML = '';
-
+    const favsPage = document.querySelector('.favs-page');
     if (restaurantFavorites.length < 1) {
         return;
     } else {
-        const favsPage = document.querySelector('.favs-page');
-
         favsPage.classList.remove('hide');
 
         for (let i = 0; i < restaurantFavorites.length; i++) {
@@ -255,10 +264,23 @@ locationBtn.addEventListener('click', (e) => {
 
     landing.classList.add('hide');
     hero.classList.add('shrink');
-    restPage.classList.remove('hide');
     yelpModal.classList.add('hide');
 
-    searchYelp('', 10, lat, long);
+    if (!hybrid) {
+        searchYelp('', 10, lat, long);
+        restPage.classList.remove('hide');
+    } else {
+        const recDisplay = document.getElementById('reccontent');
+        recDisplay.innerHTML = '';
+        used = [];
+        end = 5;
+
+        restPage.classList.remove('hide');
+        recipePage.classList.remove('hide');
+        hybrid = false;
+        fetchNow();
+        searchYelp('', 5, lat, long);
+    }
 });
 
 const signInFavListener = document.querySelector('.user-info');

@@ -9,6 +9,7 @@ const favsRec = document.getElementById('favs-recipes');
 const favsPageBtn = document.getElementById('user-favs-btn');
 const restPage = document.getElementById('rest');
 const recPage = document.getElementById('rec');
+const coll = document.getElementById('reccontent');
 //checks local storage for existing items
 if (localStorage.getItem('rec') !== null) {
     recipeFavorites = JSON.parse(localStorage.getItem('rec'));
@@ -21,14 +22,12 @@ function fetchNow() {
             return response.json();
         })
         .then(function(myJson) {
-            const spinner = document.querySelector('#recipe-spinner');
-            spinner.classList.add('hide');
-
             if (fail > 30) {
                 return;
             }
             if (used.length < end) {
                 let isNew = true;
+                coll.classList.add('hide');
 
                 for (let j = 0; j < used.length; j++) {
                     if (used[j] === myJson.name) {
@@ -107,6 +106,9 @@ function fetchNow() {
                 }
                 fetchNow();
             } else {
+                coll.classList.remove('hide');
+                const spinner = document.querySelector('#recipe-spinner');
+                spinner.classList.add('hide');
                 return;
             }
         });
@@ -115,6 +117,8 @@ function fetchNow() {
 document.getElementById('recipe-btn').addEventListener('click', function() {
     fail = 0;
     end = 10;
+    used = [];
+    coll.innerHTML = '';
     const recipePage = document.getElementById('rec');
     const landingPage = document.getElementById('home');
     landingPage.classList.add('hide');
@@ -123,7 +127,7 @@ document.getElementById('recipe-btn').addEventListener('click', function() {
 });
 
 //Expandable recipe on click event
-var coll = document.getElementById('reccontent');
+
 coll.addEventListener('click', function(event) {
     //gets the event for correct recipe title
     if (!event.target.matches('.card__title')) {
