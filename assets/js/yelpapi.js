@@ -5,8 +5,6 @@ if (localStorage.getItem('rest') !== null) {
 }
 
 function searchYelp(zip, num, lat, long) {
-
-
     const yelpApiKey =
         '_S1aN5XX2NulTwbVa_xJ0VAVwi3yZahAQbvK00zPrdlmA7EbcxE8MUl4a6HDphu_sWjRuIltYlyNNJkcjiXaxaYKKsADjZU8n_uGv1wRSCN3PNbB9e7mvaymJBUmXXYx';
 
@@ -17,22 +15,20 @@ function searchYelp(zip, num, lat, long) {
     }
 
     if (lat && long) {
-        queryURL += `&latitude=${lat}&longitude=${long}`
+        queryURL += `&latitude=${lat}&longitude=${long}`;
     }
 
-    fetch(queryURL,
-        {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${yelpApiKey}`,
-                'Access-Control-Allow-Origin': '*',
-            },
-        }
-    )
+    fetch(queryURL, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${yelpApiKey}`,
+            'Access-Control-Allow-Origin': '*',
+        },
+    })
         .then((data) => data.json())
         .then((data) => {
             updatePage(data, num);
-            const spinner = document.querySelector('.spinner');
+            const spinner = document.querySelector('#rest-spinner');
             spinner.classList.add('hide');
         });
 }
@@ -43,7 +39,6 @@ function updatePage(data, int) {
     restaurantSection.innerHTML = '';
 
     for (let i = 0; i < int; i++) {
-
         //discuss with team and decide if we should add checks for undefined, or just remove price.
 
         const info = data.businesses[i];
@@ -110,10 +105,10 @@ const yelpBtn = document.getElementById('yelp-form__btn--submit');
 yelpBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const zipInput = document.getElementById('yelp-form__field');
-    const landing = document.getElementById('home');
+    const landing = document.getElementById('page-home');
     const hero = document.getElementById('hero');
     const zip = zipInput.value;
-    const restPage = document.getElementById('rest');
+    const restPage = document.getElementById('page-restaurants');
 
     landing.classList.add('hide');
     hero.classList.add('shrink');
@@ -126,7 +121,6 @@ yelpBtn.addEventListener('click', (e) => {
 const restaurantListener = document.getElementById('restaurant__list');
 
 restaurantListener.addEventListener('click', (e) => {
-
     console.log('clicked');
 
     if (e.target.dataset.fav) {
@@ -147,28 +141,25 @@ restaurantListener.addEventListener('click', (e) => {
         const img = imgEl.getAttribute('src');
 
         let obj = {
-            'link': link,
-            'name': name,
-            'address': address,
-            'rating': rating,
-            'price': price,
-            'phone': phone,
-            'img': img
-        }
+            link: link,
+            name: name,
+            address: address,
+            rating: rating,
+            price: price,
+            phone: phone,
+            img: img,
+        };
 
         if (restaurantFavorites.length >= 0) {
-
             for (let i = 0; i < restaurantFavorites.length; i++) {
-
                 if (restaurantFavorites[i]['name'] === name) {
-
                     return;
                 }
             }
             restaurantFavorites.push(obj);
             localStorage.setItem('rest', JSON.stringify(restaurantFavorites));
         }
-    } 
+    }
 
     if (e.target.dataset.del) {
         let delNum = e.target.dataset.del;
@@ -176,9 +167,8 @@ restaurantListener.addEventListener('click', (e) => {
         let parent = document.querySelector('[data-parent="' + delNum + '"]');
 
         parent.classList.add('hide');
-
     }
-})
+});
 
 const favRest = document.getElementById('favs-restaurants');
 
@@ -236,7 +226,7 @@ function updateRestFavorites() {
                     </button>
                 </section>
             </section>
-        </section>`
+        </section>`;
             favRest.appendChild(newSection);
         }
     }
@@ -252,8 +242,7 @@ favRest.addEventListener('click', (e) => {
     } else {
         return;
     }
-
-})
+});
 
 const locationBtn = document.getElementById('location-btn');
 
@@ -270,9 +259,9 @@ locationBtn.addEventListener('click', (e) => {
     yelpModal.classList.add('hide');
 
     searchYelp('', 10, lat, long);
-})
+});
 
-const signInFavListener = document.querySelector('.user-info')
+const signInFavListener = document.querySelector('.user-info');
 
 signInFavListener.addEventListener('click', (e) => {
     e.preventDefault();
@@ -288,5 +277,4 @@ signInFavListener.addEventListener('click', (e) => {
     } else {
         return;
     }
-})
-
+});
