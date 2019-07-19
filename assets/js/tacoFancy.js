@@ -74,7 +74,7 @@ function fetchNow() {
                     //Trash can button rec-rest__btn--del btn--trans
                     remBtn.classList.add('rec-rest_btn--del');
                     remBtn.classList.add('btn--trans');
-                    remBtn.innerHTML = '<i data-del="${i}" class="fas fa-trash"></i>'
+                    remBtn.innerHTML = '<i data-del="${i}" class="fas fa-trash"></i>';
                     //favorite button
                     favBtn.classList.add('rec-rest__btn--fav');
                     favBtn.classList.add('btn--trans');
@@ -141,12 +141,8 @@ coll.addEventListener('click', function(event) {
 //localStorage.clear();
 
 //favorite button on click event
-<<<<<<< HEAD
 coll.addEventListener('click', function(e) {
-=======
-coll.addEventListener('click', function (e) {
     e.preventDefault();
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
     if (!event.target.matches('.fa-star')) {
         return;
     } else {
@@ -156,83 +152,49 @@ coll.addEventListener('click', function (e) {
         recipeFavorites.push(title);
         localStorage.setItem('rec', JSON.stringify(recipeFavorites));
     }
-<<<<<<< HEAD
+});
+//remove button on click event
+coll.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (!e.target.matches('.fa-trash')) {
+        return;
+    } else {
+        let parent = e.target.parentElement.parentElement.parentElement;
+        parent.classList.add('hide');
+    }
 });
 
-//button for favorites page. should merge with yelp js.
+//button for favorites page.
 favsPageBtn.addEventListener('click', function() {
+    UpdateRecFavs();
+});
+//local storage function
+function UpdateRecFavs() {
     if (recipeFavorites.length < 1) {
         return;
     } else {
-=======
-})
-//remove button on click event
-coll.addEventListener('click', function(e){
-    e.preventDefault();
-    if(!e.target.matches('.fa-trash')){
-        return;
-    }else{
-    let parent = e.target.parentElement.parentElement.parentElement;
-    parent.classList.add('hide');
-    }
-})
-
-//button for favorites page.
-favsPageBtn.addEventListener('click', function () {
-    UpdateRecFavs();
-})
-//local storage function
-function UpdateRecFavs(){
-    if(recipeFavorites.length < 1){ 
-        return;
-      }else{
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
         favsRec.innerHTML = '';
         favsPage[0].classList.remove('hide');
         restPage.classList.add('hide');
         recipePage.classList.add('hide');
-<<<<<<< HEAD
-
-        let title;
 
         storage = JSON.parse(window.localStorage.getItem('rec'));
 
         for (let i = 0; i < storage.length; i++) {
             title = storage[i];
-            let test = document.createElement('div');
-            test.innerHTML = title;
-
-            favsRec.append(test);
-        }
-    }
-});
-//hide and show for main recipe content
-favsRec.addEventListener('click', function(event) {
-=======
-    
-
-    
-    
-        storage = JSON.parse(window.localStorage.getItem('rec'));
-    
-        for (let i = 0; i < storage.length; i++) {
-    
-            title = storage[i]
             let recipeContainerDiv = document.createElement('div');
             recipeContainerDiv.innerHTML = title;
-    
-            favsRec.append(recipeContainerDiv)
-    
+
+            favsRec.append(recipeContainerDiv);
         }
-        } 
+    }
 }
 
 //hide and show for main recipe content
-favsRec.addEventListener("click", function (event) {
+favsRec.addEventListener('click', function(event) {
     event.preventDefault();
 
     //recipe hide
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
     if (!event.target.matches('.card__title')) {
         return;
     } else {
@@ -244,20 +206,17 @@ favsRec.addEventListener("click", function (event) {
         }
     }
 });
-<<<<<<< HEAD
-=======
 
-favsRec.addEventListener("click", function (event) {
+favsRec.addEventListener('click', function(event) {
     //trash can
-    if(!event.target.matches('.fa-trash')){
+    if (!event.target.matches('.fa-trash')) {
         return;
-    }else{
-        let parent = event.target.parentElement.parentElement.parentElement
-       let recIndex = recipeFavorites.indexOf(title)
-       recipeFavorites.splice(recIndex, 1);
-       localStorage.setItem('rec', JSON.stringify(recipeFavorites));
-       UpdateRecFavs();
+    } else {
+        let parent = event.target.parentElement.parentElement.parentElement;
+        let recIndex = recipeFavorites.indexOf(title);
+        recipeFavorites.splice(recIndex, 1);
+        localStorage.setItem('rec', JSON.stringify(recipeFavorites));
+        UpdateRecFavs();
         parent.classList.add('hide');
     }
-})
->>>>>>> 4aeb5e87651a2c5c7689c582f9c8ed22862feef5
+});
