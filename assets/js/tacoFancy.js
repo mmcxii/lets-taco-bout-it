@@ -227,7 +227,6 @@ favsRec.addEventListener('click', function(event) {
     } else {
         let parent = event.target.parentElement.parentElement.parentElement;
         let recIndex = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.index;
-        console.log(recIndex);
         recipeFavorites.splice(recIndex, 1);
         localStorage.setItem('rec', JSON.stringify(recipeFavorites));
         UpdateRecFavs();
