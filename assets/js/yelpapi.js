@@ -105,11 +105,32 @@ const yelpBtn = document.getElementById('yelp-form__btn--submit');
 yelpBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const zipInput = document.getElementById('yelp-form__field');
-    const zip = zipInput.value;
+    const zip = zipInput.value.replace(/[^\d]/g, '');
+
+    if (zip.length < 5 || zip.length > 6) {
+        modalText.textContent = 'This zip code is not valid. Please only enter a 5 digit zip. Or press the target button to use your current location.';
+        return;
+    }
+
+    if (!hybrid) {
+        recPage.classList.add('hide');
+        searchYelp(zip, 10, lat, long);
+    } else {
+        recPage.classList.remove('hide');
+        const recDisplay = document.getElementById('reccontent');
+        recDisplay.innerHTML = '';
+        used = [];
+        end = 5;
+
+        restPage.classList.remove('hide');
+        recPage.classList.remove('hide');
+        hybrid = false;
+        fetchNow();
+        searchYelp(zip, 5, '', '');
+    }
 
     // Hide Pages
     landPage.classList.add('hide');
-    recPage.classList.add('hide');
     favPage.classList.add('hide');
 
     // Hide Modal
@@ -120,21 +141,6 @@ yelpBtn.addEventListener('click', (e) => {
 
     // Shrink Hero
     hero.classList.add('shrink');
-
-    if (!hybrid) {
-        searchYelp(zip, 10, lat, long);
-    } else {
-        const recDisplay = document.getElementById('reccontent');
-        recDisplay.innerHTML = '';
-        used = [];
-        end = 5;
-
-        restPage.classList.remove('hide');
-        recPage.classList.remove('hide');
-        hybrid = false;
-        fetchNow();
-        searchYelp(zip, 5, lat, long);
-    }
 });
 
 const restaurantListener = document.getElementById('restaurant__list');
@@ -183,7 +189,7 @@ restaurantListener.addEventListener('click', (e) => {
 
         let parent = document.querySelector('[data-parent="' + delNum + '"]');
 
-        parent.classList.add('hide');
+        parent.setAttribute('style', 'display:none');
     }
 });
 
