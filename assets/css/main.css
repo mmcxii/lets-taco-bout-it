@@ -710,7 +710,7 @@ footer .container {
 .back-btn {
   position: fixed;
   z-index: 1;
-  bottom: 1rem;
+  bottom: 4rem;
   left: 0.375rem;
   font-size: 1rem;
   width: 2rem;
@@ -724,6 +724,12 @@ footer .container {
   color: #c69200;
   background-image: linear-gradient(to left, #86c5da, #e6e6e6, #86c5da);
   background-size: 200%;
+}
+
+@media screen and (min-width: 992px) {
+  .back-btn {
+    left: 1rem;
+  }
 }
 
 .back-btn:hover, .back-btn:focus {

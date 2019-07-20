@@ -3,7 +3,7 @@
 
     position: fixed;
     z-index: 1;
-    bottom: $spacing--2;
+    bottom: $spacing--2 * 4;
     left: $spacing--1 * 0.75;
 
     font-size: $icon-size * 0.5;
@@ -19,6 +19,10 @@
     color: clr(accent);
     background-image: clr(gradient-2--darker--hov);
     background-size: 200%;
+
+    @include mq(bp(lg)) {
+        left: $spacing--2;
+    }
 
     &:hover,
     &:focus {
