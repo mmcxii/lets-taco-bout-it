@@ -1,8 +1,12 @@
 function updateTime() {
+    const dest = document.querySelector('#current-time');
+    
+    if (dest === null ){
+        return
+    }
+    
     const currentTime = moment().format('h:mm A');
     const currentDay = moment().format('dddd');
-
-    const dest = document.querySelector('#current-time');
 
     dest.textContent = `${currentTime} on a ${currentDay}`;
 }
