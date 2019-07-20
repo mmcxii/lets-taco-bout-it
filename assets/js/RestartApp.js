@@ -6,6 +6,7 @@ const favPage = document.querySelector('#fav');
 
 // Components
 const goHomeBtn = document.querySelector('#go-home-btn');
+const backBtn = document.querySelector('#back-btn');
 const hero = document.querySelector('#hero');
 const spinners = document.querySelectorAll('.spinner');
 const cardTextZone = document.getElementById('primaryText');
@@ -51,11 +52,12 @@ restaurants. Feel free to remove restaurants you don't like or if you see one
 you do like go ahead and save it for later! To see a restaurant's Yelp Page,
 click on its name.`;
 
-const faveStr = `Here are your favorite recipes and restaurants! You can remove an item from your favorites by pressing the 'trashcan' icon next to an entry.`
+const faveStr = `Here are your favorite recipes and restaurants! You can remove an item from your favorites by pressing the 'trashcan' icon next to an entry.`;
 
-const hybridStr = 'Little from column A, little from column B. Never hurts to keep your options open!'
+const hybridStr = 'Little from column A, little from column B. Never hurts to keep your options open!';
 
 goHomeBtn.addEventListener('click', resetApp);
+backBtn.addEventListener('click', resetApp);
 
 function resetApp() {
     // Display Home Page
