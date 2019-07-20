@@ -1,0 +1,31 @@
+.back-btn {
+    $icon-size: 2rem;
+
+    position: fixed;
+    z-index: 1;
+    bottom: $spacing--2;
+    left: $spacing--1 * 0.75;
+
+    font-size: $icon-size * 0.5;
+    width: $icon-size;
+    height: $icon-size;
+    line-height: $icon-size;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+    box-shadow: 3px 8px 6px -6px red;
+
+    color: clr(accent);
+    background-image: clr(gradient-2--darker--hov);
+    background-size: 200%;
+
+    &:hover,
+    &:focus {
+        background-position: right;
+    }
+
+    i {
+        pointer-events: none;
+    }
+}
