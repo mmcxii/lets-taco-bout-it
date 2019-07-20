@@ -2,7 +2,7 @@ let used = [];
 let fail = 0;
 let end = 0;
 let recipeFavorites = [];
-let storage;
+let storage = [];
 let title;
 
 const favsRec = document.getElementById('favs-recipes');
@@ -195,6 +195,7 @@ function UpdateRecFavs() {
         for (let i = 0; i < storage.length; i++) {
             title = storage[i];
             let recipeContainerDiv = document.createElement('div');
+            recipeContainerDiv.setAttribute('data-index', i);
             recipeContainerDiv.innerHTML = title;
 
             favsRec.append(recipeContainerDiv);
@@ -225,7 +226,8 @@ favsRec.addEventListener('click', function(event) {
         return;
     } else {
         let parent = event.target.parentElement.parentElement.parentElement;
-        let recIndex = recipeFavorites.indexOf(title);
+        let recIndex = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.dataset.index;
+        console.log(recIndex);
         recipeFavorites.splice(recIndex, 1);
         localStorage.setItem('rec', JSON.stringify(recipeFavorites));
         UpdateRecFavs();
