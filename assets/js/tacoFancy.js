@@ -124,6 +124,8 @@ document.getElementById('recipe-btn').addEventListener('click', function() {
     restPage.classList.add('hide');
     favPage.classList.add('hide');
 
+    cardTextZone.innerHTML = recipeStr;
+
     // Display Recipe Page
     recPage.classList.remove('hide');
 

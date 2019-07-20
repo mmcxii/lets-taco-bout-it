@@ -115,13 +115,14 @@ yelpBtn.addEventListener('click', (e) => {
     if (!hybrid) {
         recPage.classList.add('hide');
         searchYelp(zip, 10, lat, long);
+        cardTextZone.textContent = restStr;
     } else {
         recPage.classList.remove('hide');
         const recDisplay = document.getElementById('reccontent');
         recDisplay.innerHTML = '';
         used = [];
         end = 5;
-
+        cardTextZone.textContent = hybridStr;
         restPage.classList.remove('hide');
         recPage.classList.remove('hide');
         hybrid = false;
@@ -287,12 +288,13 @@ locationBtn.addEventListener('click', (e) => {
     if (!hybrid) {
         searchYelp('', 10, lat, long);
         restPage.classList.remove('hide');
+        cardTextZone.textContent = restStr;
     } else {
         const recDisplay = document.getElementById('reccontent');
         recDisplay.innerHTML = '';
         used = [];
         end = 5;
-
+        cardTextZone.textContent = hybridStr;
         restPage.classList.remove('hide');
         recPage.classList.remove('hide');
         hybrid = false;
@@ -316,7 +318,7 @@ favListener.addEventListener('click', (e) => {
 
     // Hide Modal
     yelpModal.classList.add('hide');
-
+    cardTextZone.textContent = faveStr;
     // Display Favorites Page
     favPage.classList.remove('hide');
 
