@@ -308,25 +308,23 @@ const favListener = document.querySelector('.user-info');
 favListener.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const landing = document.getElementById('home');
     const hero = document.getElementById('hero');
-
-    // Hide Pages
-    landPage.classList.add('hide');
-    recPage.classList.add('hide');
-    restPage.classList.add('hide');
-
-    // Hide Modal
-    yelpModal.classList.add('hide');
-    cardTextZone.textContent = faveStr;
-    // Display Favorites Page
-    favPage.classList.remove('hide');
-
-    // Shrink Hero
-    hero.classList.add('shrink');
 
     if (e.target.dataset.btn === 'favorites') {
         updateRestFavorites();
+        // Hide Pages
+        landPage.classList.add('hide');
+        recPage.classList.add('hide');
+        restPage.classList.add('hide');
+
+        // Hide Modal
+        yelpModal.classList.add('hide');
+        cardTextZone.textContent = faveStr;
+        // Display Favorites Page
+        favPage.classList.remove('hide');
+
+        // Shrink Hero
+        hero.classList.add('shrink');
     } else {
         return;
     }
