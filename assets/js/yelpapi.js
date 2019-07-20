@@ -189,7 +189,7 @@ restaurantListener.addEventListener('click', (e) => {
 
         let parent = document.querySelector('[data-parent="' + delNum + '"]');
 
-        parent.classList.add('hide');
+        parent.setAttribute('style', 'display:none');
     }
 });
 
