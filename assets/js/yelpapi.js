@@ -114,7 +114,7 @@ yelpBtn.addEventListener('click', (e) => {
 
     if (!hybrid) {
         recPage.classList.add('hide');
-        searchYelp(zip, 10, lat, long);
+        searchYelp(zip, 10, '', '');
         cardTextZone.textContent = restStr;
     } else {
         recPage.classList.remove('hide');
