@@ -1,6 +1,6 @@
 # Let's Taco 'Bout It
 
-[View the site live](https://www.secord.io/lets-taco-bout-it/).
+[View the site live](https://www.mmcxii.github.io/lets-taco-bout-it/).
 
 ---
 
